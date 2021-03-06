@@ -1,7 +1,8 @@
 package com.kakadurf.cv4.presentation.controller;
 
 import com.kakadurf.cv4.data.dto.UserForm;
-import com.kakadurf.cv4.data.services.RegistrationService;
+import com.kakadurf.cv4.data.facade.RegistrationService;
+import com.kakadurf.cv4.data.facade.RegistrationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
