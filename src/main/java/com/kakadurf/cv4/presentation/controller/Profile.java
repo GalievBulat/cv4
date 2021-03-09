@@ -1,8 +1,7 @@
 package com.kakadurf.cv4.presentation.controller;
 
-import com.kakadurf.cv4.data.facade.AuthService;
+import com.kakadurf.cv4.domain.facade.AuthService;
 import com.kakadurf.cv4.domain.UserEntity;
-import com.kakadurf.cv4.data.facade.AuthServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,9 +1,8 @@
-package com.kakadurf.cv4.data.facade;
+package com.kakadurf.cv4.domain.facade;
 
 import com.kakadurf.cv4.data.db.DbManager;
 import com.kakadurf.cv4.domain.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package com.kakadurf.cv4.data.facade;
+package com.kakadurf.cv4.domain.facade;
 
 import com.kakadurf.cv4.domain.UserEntity;
 
