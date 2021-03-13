@@ -1,6 +1,6 @@
-package com.kakadurf.cv4.domain.facade;
+package com.kakadurf.cv4.domain.service;
 
-import com.kakadurf.cv4.domain.UserEntity;
+import com.kakadurf.cv4.domain.entities.UserEntity;
 
 import java.util.Optional;
 

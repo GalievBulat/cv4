@@ -1,7 +1,7 @@
-package com.kakadurf.cv4.presentation.controller;
+package com.kakadurf.cv4.framework_presentation.controller;
 
-import com.kakadurf.cv4.data.dto.UserForm;
-import com.kakadurf.cv4.domain.facade.RegistrationService;
+import com.kakadurf.cv4.domain.entities.UserData;
+import com.kakadurf.cv4.domain.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +16,7 @@ public class Registration{
         return "registration";
     }
     @PostMapping("/reg")
-    public String getUser(UserForm user){
+    public String getUser(UserData user){
         regHandler.signUp(user);
         return "redirect:/auth";
     }

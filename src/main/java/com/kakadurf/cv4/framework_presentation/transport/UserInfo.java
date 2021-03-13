@@ -1,4 +1,4 @@
-package com.kakadurf.cv4.data.dto;
+package com.kakadurf.cv4.framework_presentation.transport;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
