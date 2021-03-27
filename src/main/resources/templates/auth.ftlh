@@ -11,7 +11,7 @@
         <#include "resources/errors.ftl">
         <form method="post"  class="form" action="/auth">
             <label class="highlight">Введите номер карты и пароль</label>
-            <input class="form_element" type="number" name="tc" placeholder="tc"/>
+            <input class="form_element" type="email" name="tc" placeholder="email"/>
             <input class="form_element" type="password" name="password" placeholder="password"/>
             <div class="custom-control custom-checkbox">
                 <input type="checkbox" name="remember_me" class="custom-control-input" id="customCheck1">

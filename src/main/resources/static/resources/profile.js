@@ -14,7 +14,6 @@ function send(){
             data: formObj,
             processData: false,
             contentType: false,
-            data_type: "text/plain",
             success: function (_data) {
                 $("#picture").prop("src", _data + "?" + new Date().getTime());
             },

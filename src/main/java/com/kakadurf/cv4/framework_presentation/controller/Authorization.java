@@ -20,7 +20,7 @@ public class Authorization {
     public String getPage(){
         return "auth";
     }
-    @PostMapping("/auth")
+    /*@PostMapping("/auth")
     public String authorize(UserInfo userInfo, HttpServletResponse response){
         Optional<UserEntity> entity = authService.authorize(userInfo.getTc(), userInfo.getPassword());
         System.out.println(entity);
@@ -30,5 +30,5 @@ public class Authorization {
             response.addCookie(cookie);
         }
         return "redirect:/profile";
-    }
+    }*/
 }

@@ -13,7 +13,7 @@
             <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
         </table>
     </form>
-    <form  method="post" action="http://localhost/profile" enctype="multipart/form-data" id="avatarPicking">
+    <#--<form  method="post" action="http://localhost/profile" enctype="multipart/form-data" id="avatarPicking">
         <div class="input-group mb-3" style="padding: 3% 30% 1% 30%;">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="bt_sbm" onclick="send()" data-toggle="modal" data-target="#exampleModal">Upload</span>
@@ -24,11 +24,25 @@
             </div>
         </div>
     </form>
-
+-->
     <#--<img class="rounded mx-auto d-block " src="${avatar}" id = "picture" style="border: 5px solid #dee2e6;width: 10%; margin: 3%;">-->
 
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="..." alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">${user.name}</h5>
+                    <p class="card-text">${user.surname}</p>
+                    <p class="card-text"><small class="text-muted">${user.tc}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <div id="parallelogram1" class="figure top_margin d-flex justify-content-end" style="margin-top: 1%;">
+    <#--<div id="parallelogram1" class="figure top_margin d-flex justify-content-end" style="margin-top: 1%;">
         <p id = "name" class="text skewed">${user.name}</p>
     </div>
     <div id="parallelogram2" class="figure top_margin d-flex justify-content-end">
@@ -36,7 +50,7 @@
     </div>
     <div id="parallelogram3" class="figure top_margin d-flex justify-content-end">
         <p id = "tc" class="text skewed ">Номер карты: ${user.tc}</p>
-    </div>
+    </div>-->
     <button id ="change" type="button" class="btn btn-dark main_button top_margin d-flex justify-content-center" onclick="changeProfile()" style="
     margin: auto; margin-bottom: 3%; margin-top: 3%;font-size: 200%;">Изменить профиль</button>
     <a href="http://localhost:8088/cv/tc">

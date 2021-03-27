@@ -6,9 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GeneratorType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
+import javax.persistence.*;
 
 @Data
 @Builder
@@ -16,12 +15,18 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @Entity
 @Table(name = "client")
-public class UserEntity {
+public class UserEntity  {
     private String name;
     private String surname;
     private String phoneNum;
     @Id
     private Long tc;
     private String email;
-    private String password;
+    private String hashedPassword;
+    @Enumerated(value = EnumType.STRING)
+    private State state;
+
+    public enum State{
+        ACTIVE, NONCONFIRMED
+    }
 }

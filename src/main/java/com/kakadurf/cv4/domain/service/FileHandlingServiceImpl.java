@@ -30,6 +30,7 @@ public class FileHandlingServiceImpl implements FileHandlingService{
                 .oldName(multipartFile.getName())
                 .build();
         filesRepository.save(info);
+        System.out.println(new File("/files").getAbsoluteFile());
         File file = new File(path + File.separator + name);
         multipartFile.transfer(file);
     }

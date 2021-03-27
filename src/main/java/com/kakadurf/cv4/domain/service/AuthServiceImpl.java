@@ -15,7 +15,7 @@ public class AuthServiceImpl implements AuthService {
 
     public Optional<UserEntity> authorize(long tc, String password){
         Optional<UserEntity> entity = userManager.findById(tc);
-        if (entity.isPresent() && entity.get().getPassword().equals(password)){
+        if (entity.isPresent() && entity.get().getHashedPassword().equals(password)){
             return entity;
         } else
         return Optional.empty();
