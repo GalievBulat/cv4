@@ -1,21 +1,14 @@
 package com.kakadurf.cv4.framework_presentation.controller;
 
-import com.kakadurf.cv4.domain.service.AuthService;
-import com.kakadurf.cv4.domain.entities.UserEntity;
-import com.kakadurf.cv4.framework_presentation.transport.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
-import java.util.Optional;
+import javax.annotation.security.PermitAll;
 
+@PermitAll
 @Controller
 public class Authorization {
-    @Autowired
-    private AuthService authService;
     @GetMapping("/auth")
     public String getPage(){
         return "auth";

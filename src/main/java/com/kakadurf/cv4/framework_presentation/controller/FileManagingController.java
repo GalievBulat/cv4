@@ -1,6 +1,5 @@
 package com.kakadurf.cv4.framework_presentation.controller;
 
-import com.kakadurf.cv4.domain.db_interface.FileManager;
 import com.kakadurf.cv4.domain.entities.FileEntity;
 import com.kakadurf.cv4.domain.service.FileHandlingService;
 import com.kakadurf.cv4.framework_presentation.data.MultipartFileFacade;
@@ -10,8 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.security.PermitAll;
 import javax.servlet.http.HttpServletResponse;
-
+@PermitAll
 @Controller
 public class FileManagingController {
     @Autowired

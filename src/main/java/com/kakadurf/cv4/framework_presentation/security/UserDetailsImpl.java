@@ -1,6 +1,6 @@
 package com.kakadurf.cv4.framework_presentation.security;
 
-import com.kakadurf.cv4.domain.db_interface.UserManager;
+import com.kakadurf.cv4.framework_presentation.db_interface.UserManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;

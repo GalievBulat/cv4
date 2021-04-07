@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
 
@@ -20,7 +19,8 @@ public class UserEntity  {
     private String surname;
     private String phoneNum;
     @Id
-    private Long tc;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String email;
     private String hashedPassword;
     @Enumerated(value = EnumType.STRING)

@@ -36,21 +36,11 @@
                 <div class="card-body">
                     <h5 class="card-title">${user.name}</h5>
                     <p class="card-text">${user.surname}</p>
-                    <p class="card-text"><small class="text-muted">${user.tc}</small></p>
+                    <#--<p class="card-text"><small class="text-muted">${user.tc}</small></p>-->
                 </div>
             </div>
         </div>
     </div>
-
-    <#--<div id="parallelogram1" class="figure top_margin d-flex justify-content-end" style="margin-top: 1%;">
-        <p id = "name" class="text skewed">${user.name}</p>
-    </div>
-    <div id="parallelogram2" class="figure top_margin d-flex justify-content-end">
-        <p id = "surname"  class="text skewed">${user.surname}</p>
-    </div>
-    <div id="parallelogram3" class="figure top_margin d-flex justify-content-end">
-        <p id = "tc" class="text skewed ">Номер карты: ${user.tc}</p>
-    </div>-->
     <button id ="change" type="button" class="btn btn-dark main_button top_margin d-flex justify-content-center" onclick="changeProfile()" style="
     margin: auto; margin-bottom: 3%; margin-top: 3%;font-size: 200%;">Изменить профиль</button>
     <a href="http://localhost:8088/cv/tc">

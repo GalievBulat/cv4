@@ -1,6 +1,6 @@
 package com.kakadurf.cv4.domain.service;
 
-import com.kakadurf.cv4.domain.db_interface.FileManager;
+import com.kakadurf.cv4.domain.datasource.FileSource;
 import com.kakadurf.cv4.domain.entities.FileEntity;
 import com.kakadurf.cv4.domain.entities.RowFileData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class FileHandlingServiceImpl implements FileHandlingService{
     @Value("${project_meta.path}")
     private String path;
     @Autowired
-    private FileManager filesRepository;
+    private FileSource filesRepository;
     @Override
     public void saveFile(RowFileData multipartFile) {
         String name = getNewFilename(requireNonNull(multipartFile.getName()));
