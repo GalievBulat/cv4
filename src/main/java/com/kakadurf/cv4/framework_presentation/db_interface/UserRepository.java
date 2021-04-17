@@ -8,6 +8,6 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 
 @Component
-public interface UserManager extends JpaRepository<UserEntity,Long>, UserSource {
+public interface UserRepository extends JpaRepository<UserEntity,Long>, UserSource {
     Optional<UserEntity> findByEmail(String email);
 }

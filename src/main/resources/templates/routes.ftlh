@@ -7,10 +7,13 @@
     <@header text ="Маршруты"/>
     <div style="display: flex;">
         <div class="figure2 leftAl">
+
             <form action="http://localhost/search" id="form">
-                <input id = query  type="text" placeholder="query">
+                <input id = "query" type="text" placeholder="query">
                 <div class="btn btn-dark main_button btn-sm default" onclick="send()">
                     <p class="highlight  default" style="font-size: 150%">Поиск</p></div>
+
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
             </form>
             <#include "resources/field.ftl">
         </div>

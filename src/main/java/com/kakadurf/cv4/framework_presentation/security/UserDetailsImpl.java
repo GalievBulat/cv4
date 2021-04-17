@@ -1,19 +1,56 @@
 package com.kakadurf.cv4.framework_presentation.security;
 
-import com.kakadurf.cv4.framework_presentation.db_interface.UserManager;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import com.kakadurf.cv4.domain.entities.UserEntity;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Component;
-@Qualifier("loginService")
-@Component
-public class UserDetailsImpl implements UserDetailsService {
-    @Autowired
-    UserManager userManager;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+public class UserDetailsImpl implements UserDetails {
+    public final UserEntity user;
+
+    public UserDetailsImpl(UserEntity user) {
+        this.user = user;
+    }
+
     @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        return new UserSecurity( userManager.findByEmail(s).orElseThrow(RuntimeException::new));
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        //TODO("authority")
+        ArrayList<GrantedAuthority> list= new ArrayList<>();
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority("USER");
+        list.add(authority);
+        return list;
+    }
+
+    @Override
+    public String getPassword() {
+        return user.getHashedPassword();
+    }
+
+    @Override
+    public String getUsername() {
+        return user.getEmail();
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+//TODO("Authentication")
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }

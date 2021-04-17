@@ -1,0 +1,53 @@
+<#include  "resources/config.ftl">
+<@config name="routes"/>
+<#include "resources/background.ftl">
+<#include "resources/nav.ftl">
+<div  style="margin-top: 56px;">
+    <#include  "resources/header.ftl">
+    <@header text ="Маршруты"/>
+    <div style="display: flex;">
+        <div class="figure2 leftAl">
+            <form action="http://localhost/music" id="form">
+                <input id = "query" name="music_name" type="text" placeholder="music name">
+                <input id = "query2" name="music_album" type="text" placeholder="music album">
+                <input id = "query3" name="music_author" type="text" placeholder="music author">
+                <input id = "page" name="page" type="hidden">
+                <div class="btn btn-dark main_button btn-sm default" onclick="send()">
+                    <p class="highlight  default" style="font-size: 150%">Поиск</p></div>
+                <#--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">-->
+            </form>
+            <#include "resources/field.ftl">
+        </div>
+        <div class="figure2 rightAl "  style="text-align: center;">
+            <div style="background: black;height: 45px;border-radius: 0.5rem 0.5rem 0 0;"></div>
+            <div class="spread" id="list" style="overflow: auto; height: 555px;">
+                <#list music_list as item>
+                    <div class="card text-white bg-dark mb-3" >
+                        <div class="card-header">
+                            ${item.getName()}
+                        </div>
+                        <audio controls>
+                            <source src="${item.getFilePath()}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="card-body">
+                            <h2 class="card-title">
+                                ${item.getAlbum()}
+                            </h2>
+                            <p class="card-text">
+                                ${item.getAuthor()}
+                            </p>
+                        </div>
+                    </div>
+                </#list>
+            </div>
+        </div>
+    </div>
+</div>
+<#include "resources/footer.ftl">
+<@footer margin=30/>
+</body>
+<@bootstrapjs></@bootstrapjs>
+<script src="/resources/music_library.js" charset="UTF-8"></script>
+
+</html>

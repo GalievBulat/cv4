@@ -17,10 +17,13 @@ function send() {
                     el.innerHTML = "<div class=\"card text-white bg-dark mb-3\" > " +
                         "<div class=\"card-header\">"
                         + inf[i]["name"]
-                        + "</div> <div class=\"card-body\"> <h2 class=\"card-title\">"
-                        + inf[i]["id"] + "</h2> <p class=\"card-text\">"
+                        + "</div> <audio controls>" +
+                        "<source src=\"" +inf[i]["filePath"]  + "\" type=\"audio/mpeg\">" +
+                        "Your browser does not support the audio element.\n" +
+                        "</audio> <div class=\"card-body\"> <h2 class=\"card-title\">"
+                        + inf[i]["album"] + "</h2> <p class=\"card-text\">"
                         + "email"
-                        + ': ' + inf[i]["email"] +
+                        + ': ' + escapeRegExp(inf[i]["author"]) +
                         "</p> </div> </div>";
                     rootEl.appendChild(el);
                 }
@@ -30,4 +33,7 @@ function send() {
                 document.write(_data.responseText);
             }
         });
+    function escapeRegExp(string){
+        return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    }
 }

@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @Builder
@@ -25,8 +26,18 @@ public class UserEntity  {
     private String hashedPassword;
     @Enumerated(value = EnumType.STRING)
     private State state;
+    @OneToMany(mappedBy = "owner")
+    private Set<FileEntity> files;
 
     public enum State{
         ACTIVE, NONCONFIRMED
+    }
+
+    public String toJSON(){
+        return "{" +
+                "\"name\":\"" + name + '\"' +
+                ", \"id\":" + id +
+                ", \"email\":\"" + email + '\"' +
+                '}';
     }
 }

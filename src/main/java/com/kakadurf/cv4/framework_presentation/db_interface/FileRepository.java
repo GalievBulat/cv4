@@ -5,7 +5,7 @@ import com.kakadurf.cv4.domain.entities.FileEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
 
-@Component
-public interface FileManager extends JpaRepository<FileEntity,Long>, FileSource {
+
+public interface FileRepository extends JpaRepository<FileEntity,Long>, FileSource {
 
 }

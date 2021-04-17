@@ -1,11 +1,6 @@
 package com.kakadurf.cv4.framework_presentation.controller;
 
-import com.kakadurf.cv4.domain.service.DataMapper;
-import com.kakadurf.cv4.framework_presentation.security.UserSecurity;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.mail.MailSender;
-import org.springframework.mail.SimpleMailMessage;
+import com.kakadurf.cv4.framework_presentation.security.UserDetailsImpl;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -17,7 +12,7 @@ public class Profile {
 
 
     @GetMapping("/profile")
-    public String getProfile(Model model, @AuthenticationPrincipal UserSecurity security){
+    public String getProfile(Model model, @AuthenticationPrincipal UserDetailsImpl security){
         //DataMapper.INSTANCE.userDataToEntity(security.user)
 
         model.addAttribute("user",security.user);

@@ -1,30 +1,37 @@
 package com.kakadurf.cv4.framework_presentation.controller;
 
+import com.kakadurf.cv4.domain.datasource.UserSource;
 import com.kakadurf.cv4.domain.entities.UserEntity;
-import com.kakadurf.cv4.domain.service.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.function.Consumer;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.stream.Collectors;
 
 @PreAuthorize("isAuthenticated()")
 @Controller
 public class Search {
     @Autowired
-    SearchService searchService;
+    UserSource userSource;
+
+    private final int size = 10;
+
     @GetMapping("/search")
     public String getSearchPage(){
         return "routes";
     }
-    @ResponseBody
+
     @PostMapping("/search")
-    public String search(@RequestBody String name){
-        return searchService.searchForUsers(name, 10,1).orElseThrow(RuntimeException::new).toString();
+    @ResponseBody
+    public String search(@RequestBody String name, @RequestParam int page){
+        return userSource.findUsersByEmail(name, PageRequest.of(--page, size))
+                .orElseThrow(RuntimeException::new).stream()
+                .map(UserEntity::toJSON)
+                .collect(Collectors.toList())
+                .toString();
     }
 }

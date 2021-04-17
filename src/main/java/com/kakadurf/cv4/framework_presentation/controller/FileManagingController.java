@@ -20,12 +20,13 @@ public class FileManagingController {
     FileThrower fileThrower;
     @PostMapping("/profile")
     public String saveFile(@RequestParam("file") MultipartFile file){
+        //file.getResource()
         fileHandlingService.saveFile(new MultipartFileFacade(file));
         return "redirect:/profile";
     }
     @GetMapping("/file/{fileName}")
     @ResponseBody
-    public void saveFile(@PathVariable("fileName") String fileName, HttpServletResponse response){
+    public void getFile(@PathVariable("fileName") String fileName, HttpServletResponse response){
         FileEntity fileEntity;
         try {
             fileEntity = fileHandlingService.getFile(fileName);

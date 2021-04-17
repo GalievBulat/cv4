@@ -18,21 +18,21 @@ public class FileHandlingServiceImpl implements FileHandlingService{
     @Value("${project_meta.path}")
     private String path;
     @Autowired
-    private FileSource filesRepository;
+    private FileSource fileSource;
     @Override
-    public void saveFile(RowFileData multipartFile) {
-        String name = getNewFilename(requireNonNull(multipartFile.getName()));
+    public FileEntity saveFile(RowFileData multipartFile) {
+        String newFilename = getNewFilename(requireNonNull(multipartFile.getName()));
         FileEntity info = FileEntity.builder()
                 .size(multipartFile.getSize())
                 .type(multipartFile.getContentType())
-                .name(name)
-                .path(path + File.separator + name)
+                .name(newFilename)
+                .path(path + File.separator + newFilename)
                 .oldName(multipartFile.getName())
                 .build();
-        filesRepository.save(info);
-        System.out.println(new File("/files").getAbsoluteFile());
-        File file = new File(path + File.separator + name);
+        fileSource.save(info);
+        File file = new File(path + File.separator + newFilename);
         multipartFile.transfer(file);
+        return info;
     }
     private String getNewFilename(String originalFilename) {
         String[] strings = originalFilename.split("\\.");
@@ -40,9 +40,10 @@ public class FileHandlingServiceImpl implements FileHandlingService{
     }
     @Override
     public FileEntity getFile(String fileName) {
-        Optional<FileEntity> fileInfo = filesRepository.getFileEntityByOldName(fileName);
+        Optional<FileEntity> fileInfo = fileSource.getFileEntityByOldName(fileName);
         if (fileInfo.isPresent()) {
            return  fileInfo.get();
+           //TODO(authentication)
             /*if (fileInfo1.getOwner().getId().equals(userId) | fileInfo1.getReceiver().getId().equals(userId)) {
                 return new String[]{path + File.separator + fileName, fileInfo1.getType(), fileInfo1.getOriginalFileName()};
             } else {
