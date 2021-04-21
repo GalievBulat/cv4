@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable();
+        //http.csrf().disable();
         http.formLogin()
                 .loginPage("/auth")
                 .usernameParameter("tc")
@@ -44,8 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .rememberMe()
                 .rememberMeParameter("remember_me")
-                .tokenRepository(tokensRepository())
-        ;
+                .tokenRepository(tokensRepository());
     }
 
     @Override

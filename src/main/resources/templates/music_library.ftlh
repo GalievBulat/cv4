@@ -12,7 +12,7 @@
                 <input id = "query2" name="music_album" type="text" placeholder="music album">
                 <input id = "query3" name="music_author" type="text" placeholder="music author">
                 <input id = "page" name="page" type="hidden">
-                <div class="btn btn-dark main_button btn-sm default" onclick="send()">
+                <div class="btn btn-dark main_button btn-sm default" onclick="send('${_csrf.parameterName}','${_csrf.token}');">
                     <p class="highlight  default" style="font-size: 150%">Поиск</p></div>
                 <#--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">-->
             </form>

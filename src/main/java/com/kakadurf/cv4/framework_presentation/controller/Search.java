@@ -29,7 +29,7 @@ public class Search {
     @ResponseBody
     public String search(@RequestBody String name, @RequestParam int page){
         return userSource.findUsersByEmail(name, PageRequest.of(--page, size))
-                .orElseThrow(RuntimeException::new).stream()
+                .stream()
                 .map(UserEntity::toJSON)
                 .collect(Collectors.toList())
                 .toString();

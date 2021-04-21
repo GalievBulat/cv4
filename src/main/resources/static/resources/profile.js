@@ -1,8 +1,7 @@
-
 window.onload = function() {
     $("#avatarPicking").toggle();
 }
-function send(){
+/*function send(){
     //$("#bt_sbm").prop("onclick", "");
     let form = $("#avatarPicking")[0];
     let formObj = new FormData(form);
@@ -14,6 +13,7 @@ function send(){
             data: formObj,
             processData: false,
             contentType: false,
+            data_type: "text/plain",
             success: function (_data) {
                 $("#picture").prop("src", _data + "?" + new Date().getTime());
             },
@@ -22,18 +22,17 @@ function send(){
             }
         });
     }
-}
+}*/
 let html =
     '<input />';
 let nameLocal;
 let surnameLocal;
 let state = 0;
-function changeProfile(){
-
+function changeProfile(csrfName, csrfTocken){
     if (state === 0) {
         surnameLocal =  $("#surname").text();
         nameLocal =  $("#name").text();
-        $("#avatarPicking").toggle();
+        //$("#avatarPicking").toggle();
         $("#name").html(html);
         $("#surname").html(html);
         state++
@@ -46,12 +45,11 @@ function changeProfile(){
         if(name!=='' && surname!=='') {
             root["name"] = '' + name;
             root["surname"] = '' + surname;
+            root[csrfName] = csrfTocken
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost:8088/cv/profile',
-                data: JSON.stringify(root),
-                processData: false,
-                contentType: false,
+                url: 'http://localhost/profile',
+                data: root,
                 data_type: "json",
                 success: function () {
                     $("#name").text(name);

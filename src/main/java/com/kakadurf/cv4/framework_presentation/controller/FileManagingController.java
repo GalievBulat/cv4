@@ -18,7 +18,7 @@ public class FileManagingController {
     FileHandlingService fileHandlingService;
     @Autowired
     FileThrower fileThrower;
-    @PostMapping("/profile")
+    @PostMapping("/save_file")
     public String saveFile(@RequestParam("file") MultipartFile file){
         //file.getResource()
         fileHandlingService.saveFile(new MultipartFileFacade(file));

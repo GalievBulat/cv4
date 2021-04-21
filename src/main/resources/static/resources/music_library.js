@@ -1,11 +1,13 @@
-function send() {
-    let root = $("#query").val();
+function send(csrfName, csrfTocken) {
+    let root = {
+    };
+
+    root[csrfName] = csrfTocken;
+    root["value"] = $("#query").val() ;
         $.ajax({
             type: 'POST',
             url: form.action,
             data: root,
-            processData: false,
-            contentType: false,
             data_type: "json",
             success: function (_data) {
                 let inf = JSON.parse(_data);

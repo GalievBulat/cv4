@@ -13,15 +13,5 @@ public class Authorization {
     public String getPage(){
         return "auth";
     }
-    /*@PostMapping("/auth")
-    public String authorize(UserInfo userInfo, HttpServletResponse response){
-        Optional<UserEntity> entity = authService.authorize(userInfo.getTc(), userInfo.getPassword());
-        System.out.println(entity);
-        if (entity.isPresent()) {
-            Cookie cookie = new Cookie("tc", "" + userInfo.getTc());
-            cookie.setMaxAge(-1);
-            response.addCookie(cookie);
-        }
-        return "redirect:/profile";
-    }*/
+
 }

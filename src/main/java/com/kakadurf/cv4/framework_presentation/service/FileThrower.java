@@ -11,7 +11,7 @@ import java.io.InputStream;
 @Component
 public class FileThrower {
     public void writeToResponse(String path, String type, HttpServletResponse httpServletResponse) {
-        try (InputStream inputStream = new FileInputStream(new File(path))) {
+        try (InputStream inputStream = new FileInputStream(path)) {
             httpServletResponse.setContentType(type);
             //httpServletResponse.setHeader("Content-Disposition", "attachment; filename=\" " + arguments[2] + "\"");
             IOUtils.copy(inputStream, httpServletResponse.getOutputStream());

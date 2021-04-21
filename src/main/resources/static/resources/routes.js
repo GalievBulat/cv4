@@ -7,6 +7,7 @@ function send() {
             processData: false,
             contentType: false,
             data_type: "json",
+            data_type: "json",
             success: function (_data) {
                 let inf = JSON.parse(_data);
                 let rootEl = document.getElementById("list");

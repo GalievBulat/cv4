@@ -1,12 +1,16 @@
 package com.kakadurf.cv4.framework_presentation.controller;
 
+import com.kakadurf.cv4.domain.datasource.MusicSource;
 import com.kakadurf.cv4.domain.datasource.UserSource;
 import com.kakadurf.cv4.domain.entities.MusicEntity;
 import com.kakadurf.cv4.domain.entities.UserEntity;
+import com.kakadurf.cv4.domain.service.MusicService;
+import com.kakadurf.cv4.domain.service.MusicServiceImpl;
 import com.kakadurf.cv4.framework_presentation.db_interface.MusicRepository;
 import com.kakadurf.cv4.framework_presentation.transport.MusicDto;
 import com.kakadurf.cv4.framework_presentation.transport.MusicMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -18,28 +22,29 @@ import java.util.stream.Collectors;
 //@PreAuthorize("isAu")
 @Controller
 public class MusicListing {
-    @Autowired
-    MusicRepository musicRepository;
 
-    private final int size = 10;
+
+    @Autowired
+    MusicService musicService;
 
     @GetMapping("/music")
-    public String getSearchPage(Model model){
-        //MusicMapper mapper =
-        model.addAttribute("music_list",
-                musicRepository.findAll(PageRequest.of(0, size))
-                        .stream().map(MusicMapper.INSTANCE::musicToDto)
-                        .collect(Collectors.toList()));
+    public String getSearchPage(Model model,
+                                @RequestParam(required = false, defaultValue = "0") int page,
+                                @RequestParam(required = false, defaultValue = "10" ) int size){
+        /*
+        if (currentPage == null)
+            currentPage = musicSource.findAll(PageRequest.of(page, size));
+        else
+            currentPage = musicSource.findAll(currentPage.nextPageable());
+        */
+        model.addAttribute("music_list",musicService.getMusicPage(page, size));
         return "music_library";
     }
 
     @PostMapping("/music")
     @ResponseBody
-    public String search(@RequestBody String name){
-        return musicRepository.findByName(name, PageRequest.of(0, size))
-                .orElseThrow(RuntimeException::new).stream()
-                .map(MusicMapper.INSTANCE::musicToDto)
-                .map(MusicDto::toJSON)
-                .collect(Collectors.toList()).toString();
+    public String search(@RequestParam String value){
+        return musicService.findMusicByName(value).toString();
+
     }
 }

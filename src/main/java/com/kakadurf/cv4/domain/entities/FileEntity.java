@@ -1,10 +1,10 @@
 package com.kakadurf.cv4.domain.entities;
 
+import com.kakadurf.cv4.framework_presentation.dto.UserDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 
