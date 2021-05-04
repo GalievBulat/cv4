@@ -26,6 +26,13 @@ public class UserEntity  {
     private String hashedPassword;
     @Enumerated(value = EnumType.STRING)
     private State state;
+    @ManyToMany
+    @JoinTable(
+            name = "subscribes",
+            joinColumns = @JoinColumn(name = "subscriber_id"),
+            inverseJoinColumns = @JoinColumn(name = "subscribable_id"))
+    private Set<UserEntity> subscribes;
+
     /*@OneToMany(mappedBy = "owner")
     private Set<FileEntity> files;*/
 

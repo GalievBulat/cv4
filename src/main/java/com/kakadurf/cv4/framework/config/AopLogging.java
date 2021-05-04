@@ -1,6 +1,5 @@
 package com.kakadurf.cv4.framework.config;
 
-import lombok.Synchronized;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;

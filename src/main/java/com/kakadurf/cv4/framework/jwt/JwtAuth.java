@@ -3,7 +3,6 @@ package com.kakadurf.cv4.framework.jwt;
 import com.kakadurf.cv4.framework.security.UserDetailsImpl;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 public class JwtAuth implements Authentication {

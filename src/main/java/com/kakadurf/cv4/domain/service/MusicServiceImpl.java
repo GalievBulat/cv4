@@ -40,4 +40,10 @@ public class MusicServiceImpl implements MusicService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<MusicDto> getOnesMusic(long id) {
+        return musicSource.findByMusicFile_Owner_Id(id).stream()
+                .map(MusicMapper.INSTANCE::musicToDto).collect(Collectors.toList());
+    }
+
 }

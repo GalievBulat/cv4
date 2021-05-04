@@ -1,6 +1,5 @@
 package com.kakadurf.cv4.framework.data.dto;
 
-import com.kakadurf.cv4.framework.data.dto.UserDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
