@@ -1,11 +1,9 @@
 package com.kakadurf.cv4.domain.service;
 
 import com.kakadurf.cv4.domain.datasource.MusicSource;
-import com.kakadurf.cv4.domain.entities.MusicEntity;
-import com.kakadurf.cv4.framework_presentation.transport.MusicDto;
-import com.kakadurf.cv4.framework_presentation.transport.MusicMapper;
+import com.kakadurf.cv4.framework.transport.MusicDto;
+import com.kakadurf.cv4.framework.transport.MusicMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 
@@ -23,7 +21,7 @@ public class MusicServiceImpl implements MusicService {
                 .stream().map(MusicMapper.INSTANCE::musicToDto)
                 .collect(Collectors.toList());
     }
-    public  List<String> findMusicByName(String value){
+    public  List<String> findMusicJSONByName(String value){
         return musicSource.findByName(value)
                 .stream()
                 .map(MusicMapper.INSTANCE::musicToDto)

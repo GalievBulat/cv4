@@ -36,10 +36,10 @@ public class FileHandlingServiceImpl implements FileHandlingService{
     }
     private String getNewFilename(String originalFilename) {
         String[] strings = originalFilename.split("\\.");
-        return UUID.randomUUID().toString() + "." + strings[strings.length - 1];
+        return UUID.randomUUID() + "." + strings[strings.length - 1];
     }
     @Override
-    public FileEntity getFile(String fileName) {
+    public FileEntity getFileByOldName(String fileName) {
         Optional<FileEntity> fileInfo = fileSource.getFileEntityByOldName(fileName);
         if (fileInfo.isPresent()) {
            return  fileInfo.get();
@@ -49,6 +49,16 @@ public class FileHandlingServiceImpl implements FileHandlingService{
             } else {
                 throw new IllegalAccessException("Вы не имеете доступа к данным файлам");
             }*/
+        } else {
+            throw new IllegalArgumentException("Файл не найден");
+        }
+    }
+
+    @Override
+    public FileEntity getFileByName(String fileName) {
+        Optional<FileEntity> fileInfo = fileSource.getFileEntityByName(fileName);
+        if (fileInfo.isPresent()) {
+            return  fileInfo.get();
         } else {
             throw new IllegalArgumentException("Файл не найден");
         }

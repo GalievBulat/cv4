@@ -6,5 +6,6 @@ import com.kakadurf.cv4.domain.entities.RowFileData;
 public interface FileHandlingService {
      FileEntity saveFile(RowFileData multipartFile);
 
-     FileEntity getFile(String fileName) throws IllegalAccessException;
+     FileEntity getFileByOldName(String fileName) throws IllegalAccessException;
+     FileEntity getFileByName(String fileName) throws IllegalAccessException;
 }

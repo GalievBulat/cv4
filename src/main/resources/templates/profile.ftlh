@@ -1,19 +1,13 @@
 <#include  "resources/config.ftl">
+<#import "spring.ftl" as spring/>
 <@config name="profile"/>
 <#include "resources/background.ftl">
 <#include "resources/nav.ftl">
 <div style="margin-top: 56px;">
     <#include  "resources/header.ftl">
-    <@header text ="Профиль"/>
+    <@header text ="Profile"/>
     <#include "resources/errors.ftl">
     <#include "resources/alert.ftl">
-    <form method="POST" enctype="multipart/form-data" action="http://localhost/save_file">
-        <table>
-            <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-            <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
-        </table>
-    </form>
     <#--<form  method="post" action="http://localhost/profile" enctype="multipart/form-data" id="avatarPicking">
         <div class="input-group mb-3" style="padding: 3% 30% 1% 30%;">
             <div class="input-group-prepend">
@@ -44,9 +38,12 @@
     </div>
     <button id ="change" type="button" class="btn btn-dark main_button top_margin d-flex justify-content-center"
             onclick="changeProfile('${_csrf.parameterName}','${_csrf.token}')" style="
-    margin: auto; margin-bottom: 3%; margin-top: 3%;font-size: 200%;">Изменить профиль</button>
+    margin: auto; margin-bottom: 3%; margin-top: 3%;font-size: 200%;">
+        <@spring.message 'profile.change_password'/>
+    </button>
     <a href="/logout" class="btn btn-dark main_button top_margin d-flex justify-content-center"
-       style="margin: auto; margin-bottom: 3%; margin-top: 3%; font-size: 200%;">Выход
+       style="margin: auto; margin-bottom: 3%; margin-top: 3%; font-size: 200%;">
+        Выход
     </a>
 </div>
 <#include "resources/footer.ftl">

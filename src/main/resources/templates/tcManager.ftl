@@ -11,10 +11,6 @@
     <div id="parallelogram3" class="figure top_margin d-flex justify-content-end">
         <p id = "tc" class="text skewed ">Баланс: ${balance}</p>
     </div>
-    <a href="http://google.com">
-        <button type="button" class="btn btn-dark main_button top_margin d-flex justify-content-center"  style="
-        margin: auto; margin-bottom: 3%; margin-top: 3%; font-size: 200%;">Пополнить карту</button>
-    </a>
 </div>
 <#include "resources/footer.ftl">
 <@footer margin=30/>

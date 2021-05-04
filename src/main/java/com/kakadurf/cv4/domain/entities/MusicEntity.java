@@ -19,7 +19,6 @@ public class MusicEntity {
     private String name;
     private String album;
     private String author;
-    //long duration;
     @OneToOne
     @JoinColumn(name = "file_id", referencedColumnName = "id")
     private FileEntity musicFile;

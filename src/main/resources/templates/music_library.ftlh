@@ -27,20 +27,27 @@
                             ${item.getName()}
                         </div>
                         <audio controls>
-                            <source src="${item.getFilePath()}" type="audio/mpeg">
+                            <source src="${item.getFileName()}" type="audio/mpeg">
                             Your browser does not support the audio element.
                         </audio>
                         <div class="card-body">
                             <h2 class="card-title">
-                                ${item.getAlbum()}
+                               Album: ${item.getAlbum()}
                             </h2>
                             <p class="card-text">
-                                ${item.getAuthor()}
+                                Author: ${item.getAuthor()}
+                                <br>
+                                provided by:  ${item.getProvider().getName()} ||
+                                email: ${item.getProvider().getEmail()}
                             </p>
                         </div>
                     </div>
                 </#list>
             </div>
+            <a href="?page=1">1</a>
+            <a href="?page=2">2</a>
+            <a href="?page=3">3</a>
+            <a href="?page=4">4</a>
         </div>
     </div>
 </div>

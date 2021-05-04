@@ -26,8 +26,8 @@ public class UserEntity  {
     private String hashedPassword;
     @Enumerated(value = EnumType.STRING)
     private State state;
-    @OneToMany(mappedBy = "owner")
-    private Set<FileEntity> files;
+    /*@OneToMany(mappedBy = "owner")
+    private Set<FileEntity> files;*/
 
     public enum State{
         ACTIVE, NONCONFIRMED
@@ -40,4 +40,5 @@ public class UserEntity  {
                 ", \"email\":\"" + email + '\"' +
                 '}';
     }
+
 }
