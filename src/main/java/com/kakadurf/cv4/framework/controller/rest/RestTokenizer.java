@@ -21,7 +21,7 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
-public class RestRegistration {
+public class RestTokenizer {
     @Value("${secret_key}")
     private String key;
     @Autowired

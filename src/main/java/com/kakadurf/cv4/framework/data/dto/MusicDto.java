@@ -1,11 +1,15 @@
-package com.kakadurf.cv4.framework.transport;
+package com.kakadurf.cv4.framework.data.dto;
 
-import com.kakadurf.cv4.framework.dto.UserDto;
+import com.kakadurf.cv4.framework.data.dto.UserDto;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class MusicDto {
     private String name;
     private String album;

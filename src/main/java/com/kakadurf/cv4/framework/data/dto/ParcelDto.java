@@ -1,4 +1,4 @@
-package com.kakadurf.cv4.framework.transport;
+package com.kakadurf.cv4.framework.data.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,10 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserInfo {
-    private long id;
-    private String password;
+@Builder
+public class ParcelDto {
+    private String text;
 }

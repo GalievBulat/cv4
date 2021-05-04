@@ -2,8 +2,8 @@ package com.kakadurf.cv4.framework.controller.rest;
 
 import com.kakadurf.cv4.domain.datasource.MusicSource;
 import com.kakadurf.cv4.domain.entities.MusicEntity;
-import com.kakadurf.cv4.framework.transport.MusicDto;
-import com.kakadurf.cv4.framework.transport.MusicMapper;
+import com.kakadurf.cv4.framework.data.dto.MusicDto;
+import com.kakadurf.cv4.framework.data.transport.MusicMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -2,19 +2,20 @@
 <@config name="routes"/>
 <#include "resources/background.ftl">
 <#include "resources/nav.ftl">
-<div  style="margin-top: 56px;">
+<div style="margin-top: 56px;" xmlns="http://www.w3.org/1999/html">
     <#include  "resources/header.ftl">
     <@header text ="Маршруты"/>
     <div style="display: flex;">
         <div class="figure2 leftAl">
-            <form action="http://localhost/music" id="form">
-                <input id = "query" name="music_name" type="text" placeholder="music name">
-                <input id = "query2" name="music_album" type="text" placeholder="music album">
-                <input id = "query3" name="music_author" type="text" placeholder="music author">
+            <form action="http://localhost/music" id="form" method="get">
+                <input id = "query" name="name" type="text" placeholder="music name">
+                <input id = "query2" name="album" type="text" placeholder="music album">
+                <input id = "query3" name="author" type="text" placeholder="music author">
                 <input id = "page" name="page" type="hidden">
-                <div class="btn btn-dark main_button btn-sm default" onclick="send('${_csrf.parameterName}','${_csrf.token}');">
-                    <p class="highlight  default" style="font-size: 150%">Поиск</p></div>
-                <#--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">-->
+                <#--<div class="btn btn-dark main_button btn-sm default" onclick="send('${_csrf.parameterName}','${_csrf.token}');">
+                    <p class="highlight  default" style="font-size: 150%">Поиск</p></div>-->
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+                <input type="submit" class="highlight default" style="font-size: 150%" value="Поиск" class="btn btn-dark main_button btn-sm default" />
             </form>
             <#include "resources/field.ftl">
         </div>

@@ -1,8 +1,9 @@
-package com.kakadurf.cv4.framework.transport;
+package com.kakadurf.cv4.framework.data.transport;
 
 import com.kakadurf.cv4.domain.entities.MusicEntity;
 import com.kakadurf.cv4.domain.entities.UserEntity;
-import com.kakadurf.cv4.framework.dto.UserDto;
+import com.kakadurf.cv4.framework.data.dto.MusicDto;
+import com.kakadurf.cv4.framework.data.dto.UserDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;

@@ -1,5 +1,6 @@
 package com.kakadurf.cv4.framework.controller.servlet;
 
+import com.kakadurf.cv4.domain.datasource.MusicSource;
 import com.kakadurf.cv4.domain.entities.FileEntity;
 import com.kakadurf.cv4.domain.entities.MusicEntity;
 import com.kakadurf.cv4.domain.service.FileHandlingService;
@@ -17,9 +18,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 @PreAuthorize("isAuthenticated()")
 @Controller
-public class MusicPage {
+public class MusicSavingPage {
     @Autowired
-    MusicRepository musicRepository;
+    MusicSource musicRepository;
     @Autowired
     FileHandlingService fileHandlingService;
 

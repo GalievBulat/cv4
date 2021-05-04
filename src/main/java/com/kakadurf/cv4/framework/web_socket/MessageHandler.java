@@ -1,7 +1,7 @@
 package com.kakadurf.cv4.framework.web_socket;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kakadurf.cv4.framework.dto.ParcelDto;
+import com.kakadurf.cv4.framework.data.dto.ParcelDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.TextMessage;
