@@ -1,3 +1,4 @@
+/*
 package com.kakadurf.cv4.framework.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +19,6 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    /*@Autowired
-    AuthenticationProvider authenticationProvider;
-    @Autowired
-    @Qualifier("JwtAuthFilter")
-    GenericFilterBean filterBean;
-*/
     @Autowired
     PasswordEncoder passwordEncoder;
 
@@ -65,3 +60,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return repository;
     }
 }
+*/

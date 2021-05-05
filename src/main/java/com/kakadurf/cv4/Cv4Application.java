@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+
 @SpringBootApplication
 public class Cv4Application {
     @Bean
@@ -15,5 +16,7 @@ public class Cv4Application {
     public static void main(String[] args) {
         SpringApplication.run(Cv4Application.class, args);
     }
+
+
 
 }

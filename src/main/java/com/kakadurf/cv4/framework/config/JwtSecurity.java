@@ -1,9 +1,9 @@
-/*
 package com.kakadurf.cv4.framework.config;
 
 import com.kakadurf.cv4.framework.jwt.JwtFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -13,30 +13,34 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationFilter;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.stereotype.Component;
 import org.springframework.web.filter.GenericFilterBean;
 
 import javax.sql.DataSource;
-
+@Component
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class JwtSecurity extends WebSecurityConfigurerAdapter {
     @Autowired
     AuthenticationProvider authenticationProvider;
-    @Autowired
+@Autowired
     @Qualifier("JwtAuthFilter")
     JwtFilter filterBean;
+
     @Autowired
     PasswordEncoder passwordEncoder;
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        //web.ignoring().antMatchers("/auth");
+        web.ignoring().antMatchers("/auth");
     }
 
     @Override
@@ -45,7 +49,7 @@ public class JwtSecurity extends WebSecurityConfigurerAdapter {
         http.formLogin().disable();
         http.logout().disable();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        http.addFilterBefore(filterBean, BasicAuthenticationFilter.class);
+        //http.addFilterBefore(filterBean, GenericFilterBean.class);
     }
 
     @Override
@@ -55,4 +59,3 @@ public class JwtSecurity extends WebSecurityConfigurerAdapter {
         //auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
     }
 }
-*/

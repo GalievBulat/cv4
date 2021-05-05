@@ -9,8 +9,9 @@ import org.springframework.security.authentication.AuthenticationCredentialsNotF
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class JwtProvider implements AuthenticationProvider {
     @Value("${secret_key}")
     private String key;
