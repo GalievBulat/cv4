@@ -33,9 +33,9 @@ public class MusicServiceImpl implements MusicService {
 
     @Override
     public List<MusicDto> findMusicPage(MusicInfo musicInfo, int page, int size) {
-        return musicSource.findMusic(musicInfo.getName().length()>0 ? musicInfo.getName() : null,
-                musicInfo.getAuthor().length()>0 ? musicInfo.getAuthor() : null,
-                musicInfo.getAlbum().length()>0 ? musicInfo.getAlbum() : null)
+        return musicSource.findMusic(musicInfo.getName()!= null? musicInfo.getName().length()>0 ? musicInfo.getName() : null: null,
+                musicInfo.getAuthor() !=null ? musicInfo.getAuthor().length()>0 ? musicInfo.getAuthor() : null : null,
+                musicInfo.getAlbum() != null ? musicInfo.getAlbum().length()>0 ? musicInfo.getAlbum() : null : null)
                 .stream()
                 .map(MusicMapper.INSTANCE::musicToDto)
                 .collect(Collectors.toList());
