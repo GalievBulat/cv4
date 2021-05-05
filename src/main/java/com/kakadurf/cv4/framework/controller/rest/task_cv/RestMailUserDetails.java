@@ -40,9 +40,7 @@ public class RestMailUserDetails {
     public ResponseEntity<?> mail(@AuthenticationPrincipal UserDetailsImpl security,
                                   @RequestParam String mail)  {
         try {
-
             ByteArrayOutputStream outputStream =  new ByteArrayOutputStream();
-
             Map<String, Object> root = new HashMap<>();
             root.put("user", UserMapper.INSTANCE.userToDto(security.user));
             Template temp = configuration.getTemplate("profile.ftl");
@@ -66,13 +64,5 @@ public class RestMailUserDetails {
         }
         return ResponseEntity.badRequest().build();
 
-
-/*        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("noreply@kakadurf.com");
-        message.setTo(mail);
-        message.setSubject("subject");
-        message.setText("text");
-        emailSender.send(message);
-        return ResponseEntity.ok().build();*/
     }
 }
