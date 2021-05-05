@@ -6,6 +6,7 @@ import com.kakadurf.cv4.framework.data.dto.MusicDto;
 import com.kakadurf.cv4.framework.data.transport.MusicMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -41,8 +42,8 @@ public class MusicServiceImpl implements MusicService {
     }
 
     @Override
-    public List<MusicDto> getOnesMusic(long id) {
-        return musicSource.findByMusicFile_Owner_Id(id).stream()
+    public List<MusicDto> getOnesMusic(List<Long> ids, Pageable pageable) {
+        return musicSource.findByMusicFile_Owner_IdIn(ids,pageable).stream()
                 .map(MusicMapper.INSTANCE::musicToDto).collect(Collectors.toList());
     }
 

@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 @Data
@@ -24,4 +26,6 @@ public class FileEntity {
     @ManyToOne
     @JoinColumn(name="user_id")
     private UserEntity owner;
+    @CreationTimestamp
+    private Date uploadDate;
 }

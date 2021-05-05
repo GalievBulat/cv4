@@ -13,6 +13,6 @@ public interface MusicSource {
                                 String author,
                                 String album);
     Page<MusicEntity> findAll(Pageable pageable);
-    List<MusicEntity> findByMusicFile_Owner_Id(long id);
+    Page<MusicEntity> findByMusicFile_Owner_IdIn(List<Long> ids,  Pageable pageable);
     MusicEntity save(MusicEntity var1);
 }

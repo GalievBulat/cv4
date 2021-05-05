@@ -2,6 +2,7 @@ package com.kakadurf.cv4.framework.controller.servlet;
 
 import com.kakadurf.cv4.domain.entities.UserData;
 import com.kakadurf.cv4.domain.service.UserEditorService;
+import com.kakadurf.cv4.framework.data.transport.UserMapper;
 import com.kakadurf.cv4.framework.security.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -19,7 +20,7 @@ public class Profile {
 
     @GetMapping("/profile")
     public String getProfile(Model model, @AuthenticationPrincipal UserDetailsImpl security){
-        model.addAttribute("user",security.user);
+        model.addAttribute("user", UserMapper.INSTANCE.userToDto(security.user));
         return "profile";
     }
     @PostMapping("/profile")
