@@ -1,11 +1,13 @@
 package com.kakadurf.cv4.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Data
@@ -17,14 +19,11 @@ import javax.persistence.*;
 @Table(name = "subscribe")
 public class Subscribe {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @ManyToOne
-    @JoinColumn(name = "subscriberId",
-            referencedColumnName = "id")
+    @JoinColumn(name="subscriber_id", nullable=false)
     private UserEntity subscriber;
     @ManyToOne
-    @JoinColumn(name = "subscribableId",
-            referencedColumnName = "id")
+    @JoinColumn(name="subscribable_id", nullable=false)
     private UserEntity subscribable;
 }

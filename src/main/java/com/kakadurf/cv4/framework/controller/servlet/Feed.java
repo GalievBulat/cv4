@@ -33,11 +33,12 @@ public class Feed {
                           Model model){
         List<Subscribe> subscribes =
                 subscribeSource.findBySubscriber_Id(security.user.getId());
-        List<MusicDto> list = musicService.getOnesMusic(subscribes.stream()
+List<MusicDto> list = musicService.getOnesMusic(subscribes.stream()
                 .map(subscribe -> subscribe.getSubscribable().getId())
                 .collect(Collectors.toList()),
                 PageRequest.of(page-1, size, Sort.by(Sort.Direction.ASC, "musicFile_uploadDate")));
         model.addAttribute("music_list",list);
+
         return "music_library";
     }
 }

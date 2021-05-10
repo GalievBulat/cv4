@@ -53,9 +53,7 @@ public class JwtSecurity extends WebSecurityConfigurerAdapter {
     @Autowired
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        //??
         auth.authenticationProvider(authenticationProvider);
-        //auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
     }
     @Bean
     @Qualifier("api")
@@ -65,10 +63,4 @@ public class JwtSecurity extends WebSecurityConfigurerAdapter {
         entryPoint.setRealmName("api realm");
         return entryPoint;
     }
-    /*
-    @Bean
-    @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
-    }*/
 }

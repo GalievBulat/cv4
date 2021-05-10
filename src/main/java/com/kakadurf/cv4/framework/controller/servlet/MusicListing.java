@@ -21,10 +21,9 @@ public class MusicListing {
 
     @GetMapping("/music")
     public String getSearchPage(Model model,
-                                /*@RequestParam(required = false)*/ MusicInfo musicInfo,
+                                MusicInfo musicInfo,
                                 @RequestParam(required = false, defaultValue = "1") int page,
                                 @RequestParam(required = false, defaultValue = "10" ) int size){
-        //MUSICDTO
         if (musicInfo != null){
             List<MusicDto> musicEntityList = musicService.findMusicPage(musicInfo,page-1,size);
             model.addAttribute("music_list",musicEntityList);

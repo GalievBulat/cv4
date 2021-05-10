@@ -1,12 +1,14 @@
 package com.kakadurf.cv4.domain.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @Builder
@@ -25,22 +27,17 @@ public class UserEntity  {
     private String hashedPassword;
     @Enumerated(value = EnumType.STRING)
     private State state;
+
 /*
-    @ManyToMany(fetch = FetchType.LAZY)
-    //@JsonIgnore
-    @JoinTable(
-            name = "subscribes",
-            joinColumns = @JoinColumn(name = "subscriber_id"),
-            inverseJoinColumns = @JoinColumn(name = "subscribable_id"))
-    private Set<UserDto> subscribes;*/
-    /*@OneToMany(mappedBy = "owner")
-    private Set<FileEntity> files;*/
-    //@OneToMany(mappedBy = "subscriber")
-    //@JoinColumn(referencedColumnName = "subscriberId")
+    @OneToMany(mappedBy = "subscribableId")
+    @JsonIgnore
+    private Set<Subscribe> subscribers;*/
 
+/*
+    @OneToMany(mappedBy = "subscriberId")
+    @JsonIgnore
+    private Set<Subscribe> subscribes;*/
 
-    //@OneToMany(mappedBy = "subscribable")
-    //private Set<Subscribe> subscribers;
 
     public enum State{
         ACTIVE, NONCONFIRMED
