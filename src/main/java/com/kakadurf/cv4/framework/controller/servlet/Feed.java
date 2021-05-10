@@ -2,10 +2,8 @@ package com.kakadurf.cv4.framework.controller.servlet;
 
 import com.kakadurf.cv4.domain.datasource.SubscribeSource;
 import com.kakadurf.cv4.domain.entities.Subscribe;
-import com.kakadurf.cv4.domain.entities.UserEntity;
 import com.kakadurf.cv4.domain.service.MusicService;
 import com.kakadurf.cv4.framework.data.dto.MusicDto;
-import com.kakadurf.cv4.framework.data.transport.UserMapper;
 import com.kakadurf.cv4.framework.security.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -18,7 +16,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Controller

@@ -3,12 +3,7 @@ package com.kakadurf.cv4.framework.data.transport;
 import com.kakadurf.cv4.domain.entities.UserEntity;
 import com.kakadurf.cv4.framework.data.dto.UserDto;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
-
-import java.util.HashSet;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Mapper
 public interface UserMapper {

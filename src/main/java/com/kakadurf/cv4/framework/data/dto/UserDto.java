@@ -2,8 +2,6 @@ package com.kakadurf.cv4.framework.data.dto;
 
 import lombok.Data;
 
-import java.util.Set;
-
 @Data
 public class UserDto {
     private long id;

@@ -1,17 +1,13 @@
 package com.kakadurf.cv4.framework.controller.rest.task_cv;
 
-import com.kakadurf.cv4.domain.entities.UserEntity;
 import com.kakadurf.cv4.framework.data.transport.UserMapper;
 import com.kakadurf.cv4.framework.security.UserDetailsImpl;
-import freemarker.cache.ClassTemplateLoader;
-import freemarker.core.ParseException;
-import freemarker.template.*;
+import freemarker.template.Configuration;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.mail.MailSender;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -21,7 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +34,7 @@ public class RestMailUserDetails {
     @Autowired
     Configuration configuration;
 
-    @GetMapping("/mail")
+    @GetMapping("/api/mail")
     @PreAuthorize("@JwtPopulation.inflateJwt(#security.user)")
     public ResponseEntity<?> mail(@AuthenticationPrincipal UserDetailsImpl security,
                                   @RequestParam String mail)  {

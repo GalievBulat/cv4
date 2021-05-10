@@ -34,6 +34,6 @@ public class JwtProvider implements AuthenticationProvider {
 
     @Override
     public boolean supports(Class<?> aClass) {
-        return JwtAuth.class.equals(aClass);
+        return  JwtAuth.class.isAssignableFrom(aClass);
     }
 }

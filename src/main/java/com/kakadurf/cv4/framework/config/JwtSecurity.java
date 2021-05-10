@@ -1,11 +1,12 @@
 package com.kakadurf.cv4.framework.config;
 
 import com.kakadurf.cv4.framework.jwt.JwtFilter;
+import com.kakadurf.cv4.framework.jwt.JwtProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
-import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.context.annotation.Bean;
+import org.springframework.core.annotation.Order;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,49 +14,61 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.AuthenticationFilter;
-import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
-import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import org.springframework.stereotype.Component;
-import org.springframework.web.filter.GenericFilterBean;
-
-import javax.sql.DataSource;
-@Component
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
+@Order(1)
 public class JwtSecurity extends WebSecurityConfigurerAdapter {
     @Autowired
-    AuthenticationProvider authenticationProvider;
-@Autowired
-    @Qualifier("JwtAuthFilter")
-    JwtFilter filterBean;
+    JwtProvider authenticationProvider;
+
+    JwtFilter filterBean = new JwtFilter();
 
     @Autowired
     PasswordEncoder passwordEncoder;
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/auth");
+        web.ignoring().antMatchers("/api/token");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable();
-        http.formLogin().disable();
-        http.logout().disable();
-        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        //http.addFilterBefore(filterBean, GenericFilterBean.class);
+        http.antMatcher("/api/**").authorizeRequests().anyRequest().authenticated()
+                .and()
+                .csrf().disable()
+                .formLogin().disable()
+                .logout().disable()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .addFilterBefore(filterBean, BasicAuthenticationFilter.class)
+                .authenticationProvider(authenticationProvider)
+                .httpBasic()
+                .authenticationEntryPoint(apiAuthenticationEntryPoint());
     }
 
+    @Autowired
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         //??
         auth.authenticationProvider(authenticationProvider);
         //auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
     }
+    @Bean
+    @Qualifier("api")
+    public AuthenticationEntryPoint apiAuthenticationEntryPoint(){
+        BasicAuthenticationEntryPoint entryPoint =
+                new BasicAuthenticationEntryPoint();
+        entryPoint.setRealmName("api realm");
+        return entryPoint;
+    }
+    /*
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }*/
 }

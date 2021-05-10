@@ -1,15 +1,15 @@
 package com.kakadurf.cv4.framework.controller.rest.task_cv;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
-
-import java.util.Arrays;
 @Aspect
 @Component
 public class AopLog {
-    @Pointcut("execution(* com.kakadurf.cv4.framework.controller.rest.task_cv.RestMailUserDetails.*(..)) ")
+    @Pointcut("execution(* com.kakadurf.cv4.framework.controller.rest.task_cv.UserDetailsPopulation.*(..)) ")
     public void mail() {}
     @Before("mail()")
     public void before(JoinPoint pjp) throws Throwable {
