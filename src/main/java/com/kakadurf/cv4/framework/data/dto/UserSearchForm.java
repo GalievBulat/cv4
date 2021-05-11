@@ -1,21 +1,15 @@
-package com.kakadurf.cv4.domain.entities;
+package com.kakadurf.cv4.framework.data.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import java.util.Set;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SubscribedUser {
-    @Id
-    private Long id;
-
-
-
+public class UserSearchForm {
+    private String email;
+    private String name;
 }

@@ -1,7 +1,7 @@
 package com.kakadurf.cv4.framework.controller.servlet;
 
 import com.kakadurf.cv4.domain.entities.UserData;
-import com.kakadurf.cv4.domain.service.UserEditorService;
+import com.kakadurf.cv4.domain.service.UserManagingService;
 import com.kakadurf.cv4.framework.data.transport.UserMapper;
 import com.kakadurf.cv4.framework.security.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class Profile {
     @Autowired
-    UserEditorService editorService;
+    UserManagingService editorService;
 
     @GetMapping("/profile")
     public String getProfile(Model model, @AuthenticationPrincipal UserDetailsImpl security){

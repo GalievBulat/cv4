@@ -28,17 +28,6 @@ public class UserEntity  {
     @Enumerated(value = EnumType.STRING)
     private State state;
 
-/*
-    @OneToMany(mappedBy = "subscribableId")
-    @JsonIgnore
-    private Set<Subscribe> subscribers;*/
-
-/*
-    @OneToMany(mappedBy = "subscriberId")
-    @JsonIgnore
-    private Set<Subscribe> subscribes;*/
-
-
     public enum State{
         ACTIVE, NONCONFIRMED
     }
