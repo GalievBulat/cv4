@@ -14,14 +14,15 @@ public class RegistrationServiceImpl implements RegistrationService {
     @Autowired
     private PasswordEncoder encoder;
 
-    public void signUp(UserData form){
-        userSource.save(UserEntity.builder()
+    public UserEntity signUp(UserData form, String code){
+        return userSource.save(UserEntity.builder()
                 .name(form.getName())
                 .email(form.getEmail())
                 .phoneNum(form.getPhone_num())
                 .surname(form.getSurname())
                 .hashedPassword(encoder.encode(form.getPassword()))
-                .state(UserEntity.State.NONCONFIRMED)
+                .state(UserEntity.State.NON_CONFIRMED)
+                .emailCode(code)
                 .build());
     }
 }

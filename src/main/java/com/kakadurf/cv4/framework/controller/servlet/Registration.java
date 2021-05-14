@@ -1,10 +1,10 @@
 package com.kakadurf.cv4.framework.controller.servlet;
 
 import com.kakadurf.cv4.domain.entities.UserData;
+import com.kakadurf.cv4.domain.service.MailService;
 import com.kakadurf.cv4.domain.service.RegistrationService;
+import com.kakadurf.cv4.domain.service.SmsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.MailSender;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,15 +13,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.annotation.security.PermitAll;
 import javax.validation.Valid;
+import java.util.Random;
+import java.util.UUID;
 
 @PermitAll
 @Controller
 public class Registration{
+    static UserData user;
+    static int code;
     @Autowired
-    private RegistrationService regHandler;
-
-    @Autowired
-    private MailSender emailSender;
+    private SmsService smsSender;
 
     @GetMapping("/reg")
     public String getPage(Model model) {
@@ -32,14 +33,10 @@ public class Registration{
     public String getUser(@Valid UserData user,
                           BindingResult bindingResult){
         if (!bindingResult.hasErrors()) {
-            regHandler.signUp(user);
-            SimpleMailMessage message = new SimpleMailMessage();
-            message.setFrom("noreply@kakadurf.com");
-            message.setTo(user.getEmail());
-            message.setSubject("subject");
-            message.setText("text");
-            emailSender.send(message);
-            return "redirect:/auth";
+            Registration.code = new Random().nextInt();
+            Registration.user = user;
+            smsSender.sendSms(user.getPhone_num(), code + "");
+            return "redirect:/registration_confirmation";
         } else {
             return "registration";
         }

@@ -24,12 +24,14 @@ public class UserManagingServiceImpl implements UserManagingService {
         source.save(newUser);
     }
     public void subscribeToUser(long subscriberId, long subscribableId){
-        UserEntity subscriber = source.findById(subscriberId).orElseThrow(IllegalArgumentException::new);
-        UserEntity subscribable = source.findById(subscribableId).orElseThrow(IllegalArgumentException::new);
-        subscribeSource.save(Subscribe.builder()
-                .subscriber(subscriber)
-                .subscribable(subscribable)
-                .build());
+        if (subscribableId != subscriberId) {
+            UserEntity subscriber = source.findById(subscriberId).orElseThrow(IllegalArgumentException::new);
+            UserEntity subscribable = source.findById(subscribableId).orElseThrow(IllegalArgumentException::new);
+            subscribeSource.save(Subscribe.builder()
+                    .subscriber(subscriber)
+                    .subscribable(subscribable)
+                    .build());
+        } else throw new IllegalArgumentException("Профили совпадают");
     }
     public void subscribeToUser(UserEntity subscriber, UserEntity subscribable){
         subscribeSource.save(Subscribe.builder()

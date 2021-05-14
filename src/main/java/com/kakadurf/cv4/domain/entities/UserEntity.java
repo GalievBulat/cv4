@@ -25,9 +25,10 @@ public class UserEntity  {
     private String hashedPassword;
     @Enumerated(value = EnumType.STRING)
     private State state;
+    private String emailCode;
 
     public enum State{
-        ACTIVE, NONCONFIRMED
+        ACTIVE, NON_CONFIRMED,
     }
 
     public String toJSON(){
