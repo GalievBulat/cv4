@@ -1,6 +1,6 @@
 <#macro config(name)>
 <!DOCTYPE html>
-<html style="height: 100%;" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" lang="ru">
+    <html style="height: 100%;" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" lang="ru">
 <head>
     <meta charset="UTF-8" />
     <title>${name}</title>

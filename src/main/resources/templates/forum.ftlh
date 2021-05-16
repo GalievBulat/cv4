@@ -11,9 +11,11 @@
         <form id="comment">
             <div class="form-group">
                 <label id ="parent" for="exampleFormControlTextarea1">Комментарий</label>
-                <input id = "message" class="form-control form-control-lg" rows="2"/>
+                <input id = "message" class="form-control form-control-lg" rows="2" placeholder="Текст сообщения"/>
+                <input id = "name" class="form-control form-control-lg" placeholder="Имя"/>
             </div>
-            <button type="button" class="btn btn-dark" onclick="sendViaSocket($('#message').val())">Отправить комментарий</button>
+            <button type="button" class="btn btn-dark"
+                    onclick="sendViaSocket($('#message').val(), $('#name').val())">Отправить комментарий</button>
         </form>
         <div >
         </div>

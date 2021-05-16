@@ -5,6 +5,7 @@ import com.kakadurf.cv4.framework.security.UserDetailsImpl;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -34,6 +35,7 @@ public class RestMailUserDetails {
     @Autowired
     Configuration configuration;
 
+    @Operation(summary = "Sends a mail with user info to a curtain email", tags = "user")
     @GetMapping("/api/mail")
     @PreAuthorize("@JwtPopulation.inflateJwt(#security.user)")
     public ResponseEntity<?> mail(@AuthenticationPrincipal UserDetailsImpl security,

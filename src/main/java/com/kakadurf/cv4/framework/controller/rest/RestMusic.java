@@ -5,6 +5,7 @@ import com.kakadurf.cv4.domain.entities.MusicEntity;
 import com.kakadurf.cv4.framework.data.dto.MusicDto;
 import com.kakadurf.cv4.framework.data.transport.MusicMapper;
 import com.kakadurf.cv4.framework.security.UserDetailsImpl;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -19,6 +20,7 @@ import java.util.stream.Collectors;
 public class RestMusic {
     @Autowired
     MusicSource musicSource;
+    @Operation(summary = "Returns a music info", tags = "music")
     @GetMapping("/api/music/{fileName}")
     public ResponseEntity<String> getMusic(@RequestParam("fileName") String fileName){
         List<MusicEntity> music=  musicSource.findByName(fileName);
@@ -27,6 +29,7 @@ public class RestMusic {
                 .map(MusicDto::toJSON)
                 .collect(Collectors.toList()).toString());
     }
+    @Operation(summary = "Returns a user info", tags = "user")
     @GetMapping("/api/auth")
     public ResponseEntity<String> getMusic(
                                            @AuthenticationPrincipal UserDetailsImpl security){

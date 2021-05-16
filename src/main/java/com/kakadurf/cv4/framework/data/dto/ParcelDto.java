@@ -11,4 +11,5 @@ import lombok.NoArgsConstructor;
 @Builder
 public class ParcelDto {
     private String text;
+    private String userName;
 }

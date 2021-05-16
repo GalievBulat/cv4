@@ -1,3 +1,4 @@
+/*
 package com.kakadurf.cv4.framework.controller.servlet;
 
 import org.springframework.stereotype.Controller;
@@ -13,3 +14,4 @@ public class Default{
         return "redirect:/help";
     }
 }
+*/

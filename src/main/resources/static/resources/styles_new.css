@@ -1,0 +1,242 @@
+    /* back_final 1 */
+
+.back_final1 {
+    position: absolute;
+    width: 1280px;
+    height: 708px;
+    left: 0px;
+    top: 0px;
+
+    background: #D6C8B6;
+}
+    /* Rectangle 6 */
+
+.Rectangle6 {
+    position: absolute;
+    width: 1098px;
+    height: 661px;
+    left: 91px;
+    top: 113px;
+
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+}
+
+/* back_final 2 */
+
+.back_final2 {
+    position: absolute;
+    width: 1280px;
+    height: 708px;
+    left: 0;
+    top: 0;
+
+    background: url(pattern2.png);
+}
+
+/* Rectangle 4 */
+
+.Rectangle4 {
+    position: absolute;
+    width: 732px;
+    height: 102px;
+    left: 274px;
+    top: -16px;
+
+    background: #001A29;
+    border-radius: 20px;
+}
+
+/* Rectangle 5 */
+
+.Rectangle5 {
+    position: absolute;
+    width: 954px;
+    height: 503px;
+    left: 163px;
+    top: 130px;
+
+    background: #eaeaea;
+    border-radius: 15px;
+}
+
+/* Text */
+
+.Text {
+    position: absolute;
+    width: 732px;
+    height: 78px;
+    left: 274px;
+    top: 0px;
+
+    font-family: Georgia, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 72px;
+    line-height: 82px;
+    text-align: center;
+
+    color: #eaeaea;
+
+}
+
+/* Text */
+
+.Text2 {
+    position: absolute;
+    width: 732px;
+    height: 90px;
+    left: 274px;
+    top: 147px;
+
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 60px;
+    line-height: 70px;
+    text-align: center;
+
+    color: #000000;
+
+}
+
+/* Line 6 */
+
+.Line6 {
+    position: absolute;
+    width: 732px;
+    height: 0px;
+    left: 274px;
+    top: 218px;
+
+    border: 1px dashed #000000;
+}
+
+/* Line 4 */
+
+.Line4 {
+    position: absolute;
+    width: 954px;
+    left: 163px;
+    top: 230px;
+    border-top: 3px dotted black;
+    color: transparent;
+}
+
+/* Group 2 */
+
+.Group2 {
+
+    position: absolute;
+    width: 954px;
+    height: 309px;
+    left: 163px;
+    top: 238px;
+}
+
+
+/* Group 3 */
+
+.Group3 {
+
+    position: absolute;
+    width: 954px;
+    height: 176px;
+    left: 163px;
+    top: 429px;
+
+
+}
+/* Group 4 */
+
+.Group4 {
+
+    position: absolute;
+    width: 732px;
+    height: 76px;
+    left: 282px;
+    top: 626px;
+}
+
+
+/* Ellipse 1 */
+
+.Ellipse1 {
+
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 374px;
+    top: 310px;
+
+    background: #C4C4C4;
+}
+
+/* Ellipse 2 */
+
+.Ellipse2 {
+
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 317px;
+    top: 503px;
+
+    background: #C4C4C4;
+}
+
+/* Rectangle 8 */
+
+.Rectangle8 {
+
+    position: absolute;
+    width: 1281px;
+    height: 175px;
+    left: -1px;
+    top: 605px;
+
+    background: #001A29;
+    border-radius: 12px;
+}
+
+/* Disclamer Disclamer Disclamer Disclamer */
+
+.Disclamer {
+
+    position: absolute;
+    width: 1280px;
+    height: 82px;
+    left: 0px;
+    top: 626px;
+
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 56px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+
+
+/* Provided by */
+
+.Provided {
+
+    position: absolute;
+    width: 273px;
+    height: 58px;
+    left: 654px;
+    top: 546px;
+
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 37px;
+    text-align: center;
+
+    color: #000000;
+}

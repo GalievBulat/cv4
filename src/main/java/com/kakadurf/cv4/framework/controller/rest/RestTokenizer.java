@@ -26,7 +26,7 @@ public class RestTokenizer {
 
     private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    @Operation(summary = "Gets a token for a given user users", tags = "user")
+    @Operation(summary = "Gets a token for a given user", tags = "user")
     @PostMapping("/api/token")
     public ResponseEntity<String> getUser(@RequestBody UserInfo user){
         Optional<UserEntity> entityDB = userSource.findById(user.getId());
