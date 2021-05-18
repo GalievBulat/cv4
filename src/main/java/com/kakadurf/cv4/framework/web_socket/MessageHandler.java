@@ -4,7 +4,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kakadurf.cv4.domain.datasource.MessagesSource;
 import com.kakadurf.cv4.domain.entities.MessageEntity;
 import com.kakadurf.cv4.framework.data.dto.ParcelDto;
+import com.kakadurf.cv4.framework.jwt.JwtAuth;
+import com.kakadurf.cv4.framework.jwt.JwtProvider;
+import com.kakadurf.cv4.framework.security.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
@@ -17,6 +21,8 @@ public class MessageHandler extends TextWebSocketHandler {
     private ObjectMapper objectMapper;
     @Autowired
     private MessagesSource messagesSource;
+    @Autowired
+    private JwtProvider jwtProvider;
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
         ParcelDto parcel = objectMapper.readValue(message.getPayload(),ParcelDto.class);
@@ -24,8 +30,10 @@ public class MessageHandler extends TextWebSocketHandler {
         for(WebSocketSession aSession : webSocketSessions){
             aSession.sendMessage(message);
         }*/
+        Authentication authentication = jwtProvider.authenticate(new JwtAuth(parcel.getToken()));
         session.sendMessage(message);
         messagesSource.save(MessageEntity.builder()
+                .userEntity(((UserDetailsImpl) authentication.getPrincipal()).user)
                 .name(parcel.getUserName())
                 .text(parcel.getText())
                 .build());

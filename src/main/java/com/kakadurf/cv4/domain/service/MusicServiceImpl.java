@@ -5,7 +5,7 @@ import com.kakadurf.cv4.domain.entities.FileEntity;
 import com.kakadurf.cv4.domain.entities.MusicEntity;
 import com.kakadurf.cv4.domain.entities.MusicInfo;
 import com.kakadurf.cv4.domain.entities.UserEntity;
-import com.kakadurf.cv4.framework.data.MultipartFileFacade;
+import com.kakadurf.cv4.domain.service.interfaces.MusicService;
 import com.kakadurf.cv4.framework.data.dto.MusicDto;
 import com.kakadurf.cv4.framework.data.transport.MusicMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +22,6 @@ public class MusicServiceImpl implements MusicService {
     @Autowired
     MusicSource musicSource;
 
-    @Autowired
-    FileHandlingService fileHandlingService;
 
     public List<MusicDto> getMusicPage(int page, int size){
         return musicSource.findAll(PageRequest.of(page, size))
@@ -53,15 +51,18 @@ public class MusicServiceImpl implements MusicService {
         return musicSource.findByMusicFile_Owner_IdIn(ids,pageable).stream()
                 .map(MusicMapper.INSTANCE::musicToDto).collect(Collectors.toList());
     }
-    public boolean uploadMusic(MusicEntity entity, MultipartFileFacade file, UserEntity owner){
-        if (file.getContentType().contains("audio/mpeg")) {
-            FileEntity musicFile = fileHandlingService.saveFile(file);
-            musicFile.setOwner(owner);
-            entity.setMusicFile(musicFile);
-            musicSource.save(entity);
-            return true;
+
+    public void uploadMusic(MusicInfo entity, FileEntity musicFile, UserEntity owner){
+        if (musicFile.getType().contains("audio/mpeg")) {
+            MusicEntity musicEntity = MusicEntity.builder()
+                    .musicFile(musicFile)
+                    .name(entity.getName())
+                    .album(entity.getAlbum())
+                    .author(entity.getAuthor())
+                    .build();
+            musicSource.save(musicEntity);
         }
-        return false;
     }
+
 
 }

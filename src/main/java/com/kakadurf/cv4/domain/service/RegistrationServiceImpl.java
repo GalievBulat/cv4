@@ -3,6 +3,7 @@ package com.kakadurf.cv4.domain.service;
 import com.kakadurf.cv4.domain.datasource.UserSource;
 import com.kakadurf.cv4.domain.entities.UserData;
 import com.kakadurf.cv4.domain.entities.UserEntity;
+import com.kakadurf.cv4.domain.service.interfaces.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

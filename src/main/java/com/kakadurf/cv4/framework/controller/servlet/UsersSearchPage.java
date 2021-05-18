@@ -1,6 +1,6 @@
 package com.kakadurf.cv4.framework.controller.servlet;
 
-import com.kakadurf.cv4.domain.service.UserSearchService;
+import com.kakadurf.cv4.domain.service.interfaces.UserSearchService;
 import com.kakadurf.cv4.framework.data.dto.UserDto;
 import com.kakadurf.cv4.framework.data.dto.UserSearchForm;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.kakadurf.cv4.framework.controller.rest;
 
-import com.kakadurf.cv4.domain.service.UserManagingService;
+import com.kakadurf.cv4.domain.service.interfaces.UserManagingService;
 import com.kakadurf.cv4.framework.security.UserDetailsImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;

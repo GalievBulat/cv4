@@ -1,5 +1,6 @@
 package com.kakadurf.cv4.domain.service;
 
+import com.kakadurf.cv4.domain.service.interfaces.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;

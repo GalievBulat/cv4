@@ -1,9 +1,10 @@
 package com.kakadurf.cv4.framework.controller.servlet;
 
 import com.kakadurf.cv4.domain.entities.MusicInfo;
-import com.kakadurf.cv4.domain.service.MusicService;
+import com.kakadurf.cv4.domain.service.interfaces.MusicService;
 import com.kakadurf.cv4.framework.data.dto.MusicDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-//@PreAuthorize("isAu")
+@PreAuthorize("isAuthenticated()")
 @Controller
 public class MusicListing {
 

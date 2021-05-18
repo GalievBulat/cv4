@@ -3,6 +3,8 @@ package com.kakadurf.cv4.domain.service;
 import com.kakadurf.cv4.domain.datasource.FileSource;
 import com.kakadurf.cv4.domain.entities.FileEntity;
 import com.kakadurf.cv4.domain.entities.RowFileData;
+import com.kakadurf.cv4.domain.entities.UserEntity;
+import com.kakadurf.cv4.domain.service.interfaces.FileHandlingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -14,13 +16,13 @@ import java.util.UUID;
 import static java.util.Objects.requireNonNull;
 
 @Service
-public class FileHandlingServiceImpl implements FileHandlingService{
+public class FileHandlingServiceImpl implements FileHandlingService {
     @Value("${project_meta.path}")
     private String path;
     @Autowired
     private FileSource fileSource;
     @Override
-    public FileEntity saveFile(RowFileData multipartFile) {
+    public FileEntity saveFile(RowFileData multipartFile, UserEntity owner) {
         String newFilename = getNewFilename(requireNonNull(multipartFile.getName()));
         FileEntity info = FileEntity.builder()
                 .size(multipartFile.getSize())
@@ -28,6 +30,7 @@ public class FileHandlingServiceImpl implements FileHandlingService{
                 .name(newFilename)
                 .path(path + File.separator + newFilename)
                 .oldName(multipartFile.getName())
+                .owner(owner)
                 .build();
         fileSource.save(info);
         File file = new File(path + File.separator + newFilename);

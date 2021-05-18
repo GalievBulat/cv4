@@ -2,7 +2,7 @@ package com.kakadurf.cv4.framework.controller.servlet;
 
 import com.kakadurf.cv4.domain.datasource.UserSource;
 import com.kakadurf.cv4.domain.entities.UserData;
-import com.kakadurf.cv4.domain.service.SmsService;
+import com.kakadurf.cv4.domain.service.interfaces.SmsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

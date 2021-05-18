@@ -4,14 +4,13 @@ import com.kakadurf.cv4.domain.datasource.SubscribeSource;
 import com.kakadurf.cv4.domain.datasource.UserSource;
 import com.kakadurf.cv4.domain.entities.Subscribe;
 import com.kakadurf.cv4.domain.entities.UserEntity;
-import com.kakadurf.cv4.framework.data.dto.MusicDto;
+import com.kakadurf.cv4.domain.service.interfaces.UserManagingService;
+import com.kakadurf.cv4.domain.service.interfaces.UserSearchService;
 import com.kakadurf.cv4.framework.data.dto.UserDto;
 import com.kakadurf.cv4.framework.data.dto.UserSearchForm;
 import com.kakadurf.cv4.framework.data.transport.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -60,6 +59,10 @@ public class UserManagingServiceImpl implements UserManagingService, UserSearchS
     public  List<Subscribe> getSubscribes(UserEntity user){
         return
                 subscribeSource.findBySubscriber_Id(user.getId());
+
+    }
+    public  List<Subscribe> getSubscribers(UserEntity user){
+        return subscribeSource.findBySubscribable_Id(user.getId());
 
     }
 }

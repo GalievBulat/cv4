@@ -1,9 +1,8 @@
-package com.kakadurf.cv4.domain.service;
+package com.kakadurf.cv4.domain.service.interfaces;
 
-import com.kakadurf.cv4.domain.entities.MusicEntity;
+import com.kakadurf.cv4.domain.entities.FileEntity;
 import com.kakadurf.cv4.domain.entities.MusicInfo;
 import com.kakadurf.cv4.domain.entities.UserEntity;
-import com.kakadurf.cv4.framework.data.MultipartFileFacade;
 import com.kakadurf.cv4.framework.data.dto.MusicDto;
 import org.springframework.data.domain.Pageable;
 
@@ -15,5 +14,5 @@ public interface MusicService {
     List<MusicDto> findMusicPage(MusicInfo musicInfo, int page, int size);
 
     List<MusicDto> getOnesMusic(List<Long> ids, Pageable pageable);
-    public boolean uploadMusic(MusicEntity entity, MultipartFileFacade file, UserEntity owner);
+    void uploadMusic(MusicInfo entity, FileEntity file, UserEntity owner);
 }

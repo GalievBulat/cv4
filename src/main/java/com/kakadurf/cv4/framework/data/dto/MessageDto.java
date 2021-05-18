@@ -5,12 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Date;
+
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
-public class ParcelDto {
+@AllArgsConstructor
+@NoArgsConstructor
+public class MessageDto {
     private String text;
-    private String userName;
-    private String token;
+    private String name;
+    private Date date;
 }

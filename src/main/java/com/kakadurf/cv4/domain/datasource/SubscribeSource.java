@@ -9,5 +9,9 @@ import java.util.List;
 public interface SubscribeSource {
     List<Subscribe> findBySubscriber(UserEntity subscriber);
     List<Subscribe> findBySubscriber_Id(long id);
+
+    List<Subscribe> findBySubscribable_Id(long id);
+
+    List<Subscribe> findBySubscribable_Id(UserEntity subscribable);
     Subscribe save(Subscribe subscribe);
 }

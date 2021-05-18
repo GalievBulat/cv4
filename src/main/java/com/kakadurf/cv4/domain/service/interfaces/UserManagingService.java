@@ -1,4 +1,4 @@
-package com.kakadurf.cv4.domain.service;
+package com.kakadurf.cv4.domain.service.interfaces;
 
 import com.kakadurf.cv4.domain.entities.Subscribe;
 import com.kakadurf.cv4.domain.entities.UserEntity;
@@ -14,4 +14,5 @@ public interface UserManagingService {
 
     Optional<UserDto> findUser(Long id);
     public List<Subscribe> getSubscribes(UserEntity user);
+    public  List<Subscribe> getSubscribers(UserEntity user);
 }

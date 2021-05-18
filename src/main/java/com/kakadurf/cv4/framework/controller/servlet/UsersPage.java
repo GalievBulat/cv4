@@ -1,6 +1,6 @@
 package com.kakadurf.cv4.framework.controller.servlet;
 
-import com.kakadurf.cv4.domain.service.UserManagingService;
+import com.kakadurf.cv4.domain.service.interfaces.UserManagingService;
 import com.kakadurf.cv4.framework.data.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

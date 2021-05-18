@@ -1,8 +1,8 @@
 package com.kakadurf.cv4.framework.controller.rest;
 
 import com.kakadurf.cv4.domain.entities.Subscribe;
-import com.kakadurf.cv4.domain.service.MusicService;
-import com.kakadurf.cv4.domain.service.UserManagingService;
+import com.kakadurf.cv4.domain.service.interfaces.MusicService;
+import com.kakadurf.cv4.domain.service.interfaces.UserManagingService;
 import com.kakadurf.cv4.framework.data.dto.MusicDto;
 import com.kakadurf.cv4.framework.security.UserDetailsImpl;
 import io.swagger.v3.oas.annotations.Operation;

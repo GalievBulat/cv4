@@ -1,5 +1,6 @@
 package com.kakadurf.cv4.domain.service;
 
+import com.kakadurf.cv4.domain.service.interfaces.SmsService;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;

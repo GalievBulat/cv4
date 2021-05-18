@@ -1,7 +1,12 @@
 package com.kakadurf.cv4.framework.controller.servlet;
 
-import com.kakadurf.cv4.domain.entities.MusicEntity;
-import com.kakadurf.cv4.domain.service.MusicService;
+import com.kakadurf.cv4.domain.entities.FileEntity;
+import com.kakadurf.cv4.domain.entities.MusicInfo;
+import com.kakadurf.cv4.domain.entities.RowFileData;
+import com.kakadurf.cv4.domain.service.interfaces.FileHandlingService;
+import com.kakadurf.cv4.domain.service.interfaces.MailService;
+import com.kakadurf.cv4.domain.service.interfaces.MusicService;
+import com.kakadurf.cv4.domain.service.interfaces.UserManagingService;
 import com.kakadurf.cv4.framework.data.MultipartFileFacade;
 import com.kakadurf.cv4.framework.security.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,20 +19,40 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.Valid;
+
 @PreAuthorize("isAuthenticated()")
 @Controller
 public class MusicSavingPage {
     @Autowired
     MusicService musicService;
+
+    @Autowired
+    FileHandlingService fileHandlingService;
+
+    @Autowired
+    UserManagingService userManagingService;
+
+    @Autowired
+    MailService mailService;
+
     @PostMapping("/save_music")
     @Transactional
     public String saveMusic(@RequestParam("file") MultipartFile file,
                             @AuthenticationPrincipal UserDetailsImpl security,
-                            MusicEntity entity){
-        if (musicService.uploadMusic(entity, new MultipartFileFacade(file), security.user))
+                            @Valid MusicInfo entity){
+        if (file.getContentType().contains("audio/mpeg")) {
+            RowFileData fileFacade = new MultipartFileFacade(file);
+            //TODO(dodumat)
+            FileEntity musicFile = fileHandlingService.saveFile(fileFacade, security.user);
+            musicService.uploadMusic(entity,musicFile, security.user);
+            userManagingService.getSubscribers(security.user).forEach(subscribe ->
+                    mailService.sendMail(subscribe.getSubscriber().getEmail(),
+                            "new music upload by " + security.user.getName(),
+                            entity.getName()));
             return "success";
-        else
-            return "redirect:/error";
+        }
+        return "redirect:/error";
     }
 
     @GetMapping("/save_music")
