@@ -1,4 +1,4 @@
-package com.kakadurf.cv4.framework.data.transport;
+package com.kakadurf.cv4.domain.transport;
 
 import org.mapstruct.Qualifier;
 

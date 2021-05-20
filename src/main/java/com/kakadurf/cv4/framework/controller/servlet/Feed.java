@@ -3,7 +3,7 @@ package com.kakadurf.cv4.framework.controller.servlet;
 import com.kakadurf.cv4.domain.entities.Subscribe;
 import com.kakadurf.cv4.domain.service.interfaces.MusicService;
 import com.kakadurf.cv4.domain.service.interfaces.UserManagingService;
-import com.kakadurf.cv4.framework.data.dto.MusicDto;
+import com.kakadurf.cv4.domain.transport.dto.MusicDto;
 import com.kakadurf.cv4.framework.security.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;

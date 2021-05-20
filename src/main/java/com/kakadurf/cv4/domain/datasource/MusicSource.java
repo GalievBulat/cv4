@@ -9,6 +9,7 @@ import java.util.List;
 public interface MusicSource {
     Page<MusicEntity> findByName(String name, Pageable pageable);
     List<MusicEntity> findByName(String name);
+    MusicEntity findById(long id);
     List<MusicEntity> findMusic(String name,
                                 String author,
                                 String album);

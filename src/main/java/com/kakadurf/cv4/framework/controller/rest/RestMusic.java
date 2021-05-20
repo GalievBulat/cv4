@@ -2,14 +2,15 @@ package com.kakadurf.cv4.framework.controller.rest;
 
 import com.kakadurf.cv4.domain.datasource.MusicSource;
 import com.kakadurf.cv4.domain.entities.MusicEntity;
-import com.kakadurf.cv4.framework.data.dto.MusicDto;
-import com.kakadurf.cv4.framework.data.transport.MusicMapper;
+import com.kakadurf.cv4.domain.transport.dto.MusicDto;
+import com.kakadurf.cv4.domain.transport.MusicMapper;
 import com.kakadurf.cv4.framework.security.UserDetailsImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,7 +23,7 @@ public class RestMusic {
     MusicSource musicSource;
     @Operation(summary = "Returns a music info", tags = "music")
     @GetMapping("/api/music/{fileName}")
-    public ResponseEntity<String> getMusic(@RequestParam("fileName") String fileName){
+    public ResponseEntity<String> getMusic(@PathVariable("fileName") String fileName){
         List<MusicEntity> music=  musicSource.findByName(fileName);
         return ResponseEntity.ok(music.stream()
                 .map(MusicMapper.INSTANCE::musicToDto)

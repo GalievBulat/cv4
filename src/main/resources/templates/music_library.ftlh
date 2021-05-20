@@ -53,7 +53,18 @@
 
 <header class="Text">Text</header>
 
-<header class="Text2">Text</header>
+<div class="Text2">
+    <a style="width: 250px; background-color: #001A29;border-color: #001A29;" class="btn btn-primary" data-bs-toggle="collapse" href="#form" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Search
+    </a>
+    <form action="http://localhost/music" method="get" class="collapse" id="form" style="margin-top: 20px;">
+        <input class="form-control" id = "query" name="name" type="text" placeholder="music name">
+        <input class="form-control" id = "query2" name="album" type="text" placeholder="music album">
+        <input class="form-control" id = "query3" name="author" type="text" placeholder="music author">
+        <input type="submit"  style="font-size: 150%" value="Поиск" class="btn btn-dark" />
+    </form>
+   <#-- <input class="form-control" type="text" placeholder="Default input" aria-label="default input example">-->
+</div>
 
 <footer class="Rectangle8" >
     <div class="card" style="background: #001A29">

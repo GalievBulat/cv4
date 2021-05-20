@@ -10,17 +10,15 @@
     <div class="figure2" style="width: 80%;padding: 2%">
         <#include "resources/errors.ftl">
         <form id="comment">
-
             <div class="form-group">
                 <label id ="parent" for="exampleFormControlTextarea1">Комментарий</label>
                 <input id = "message" class="form-control form-control-lg" rows="2" placeholder="Текст сообщения"/>
                 <input id = "name" class="form-control form-control-lg" placeholder="Имя"/>
             </div>
+
             <button type="button" class="btn btn-dark"
                     onclick="sendViaSocket($('#message').val(), '${username}', '${token}')">Отправить комментарий</button>
         </form>
-        <div >
-        </div>
         <p class="highlight">Обсуждения</p>
         <#include "resources/post.ftl">
         <div id = "discussions">

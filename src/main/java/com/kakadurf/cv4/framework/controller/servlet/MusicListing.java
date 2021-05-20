@@ -2,7 +2,7 @@ package com.kakadurf.cv4.framework.controller.servlet;
 
 import com.kakadurf.cv4.domain.entities.MusicInfo;
 import com.kakadurf.cv4.domain.service.interfaces.MusicService;
-import com.kakadurf.cv4.framework.data.dto.MusicDto;
+import com.kakadurf.cv4.domain.transport.dto.MusicDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;

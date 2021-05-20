@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
-public class AccessDeniedException {
+public class AccessDeniedExceptionHandler {
     @ExceptionHandler(org.springframework.security.access.AccessDeniedException.class)
     public String handle(Exception e) throws Exception {
         return "redirect:/auth";

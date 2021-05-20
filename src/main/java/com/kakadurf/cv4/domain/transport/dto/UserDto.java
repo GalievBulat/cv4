@@ -1,4 +1,4 @@
-package com.kakadurf.cv4.framework.data.dto;
+package com.kakadurf.cv4.domain.transport.dto;
 
 import lombok.Data;
 

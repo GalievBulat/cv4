@@ -2,7 +2,7 @@ package com.kakadurf.cv4.domain.service.interfaces;
 
 import com.kakadurf.cv4.domain.entities.Subscribe;
 import com.kakadurf.cv4.domain.entities.UserEntity;
-import com.kakadurf.cv4.framework.data.dto.UserDto;
+import com.kakadurf.cv4.domain.transport.dto.UserDto;
 
 import java.util.List;
 import java.util.Optional;

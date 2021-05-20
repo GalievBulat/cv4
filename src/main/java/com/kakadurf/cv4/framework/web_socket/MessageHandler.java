@@ -1,9 +1,9 @@
 package com.kakadurf.cv4.framework.web_socket;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kakadurf.cv4.domain.datasource.MessagesSource;
+import com.kakadurf.cv4.domain.datasource.MessageSource;
 import com.kakadurf.cv4.domain.entities.MessageEntity;
-import com.kakadurf.cv4.framework.data.dto.ParcelDto;
+import com.kakadurf.cv4.domain.transport.dto.ParcelDto;
 import com.kakadurf.cv4.framework.jwt.JwtAuth;
 import com.kakadurf.cv4.framework.jwt.JwtProvider;
 import com.kakadurf.cv4.framework.security.UserDetailsImpl;
@@ -20,7 +20,7 @@ public class MessageHandler extends TextWebSocketHandler {
     @Autowired
     private ObjectMapper objectMapper;
     @Autowired
-    private MessagesSource messagesSource;
+    private MessageSource messageSource;
     @Autowired
     private JwtProvider jwtProvider;
     @Override
@@ -32,7 +32,7 @@ public class MessageHandler extends TextWebSocketHandler {
         }*/
         Authentication authentication = jwtProvider.authenticate(new JwtAuth(parcel.getToken()));
         session.sendMessage(message);
-        messagesSource.save(MessageEntity.builder()
+        messageSource.save(MessageEntity.builder()
                 .userEntity(((UserDetailsImpl) authentication.getPrincipal()).user)
                 .name(parcel.getUserName())
                 .text(parcel.getText())

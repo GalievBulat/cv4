@@ -1,7 +1,7 @@
-package com.kakadurf.cv4.framework.data.transport;
+package com.kakadurf.cv4.domain.transport;
 
 import com.kakadurf.cv4.domain.entities.UserEntity;
-import com.kakadurf.cv4.framework.data.dto.UserDto;
+import com.kakadurf.cv4.domain.transport.dto.UserDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

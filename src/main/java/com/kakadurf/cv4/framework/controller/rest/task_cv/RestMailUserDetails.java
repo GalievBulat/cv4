@@ -1,6 +1,6 @@
 package com.kakadurf.cv4.framework.controller.rest.task_cv;
 
-import com.kakadurf.cv4.framework.data.transport.UserMapper;
+import com.kakadurf.cv4.domain.transport.UserMapper;
 import com.kakadurf.cv4.framework.security.UserDetailsImpl;
 import freemarker.template.Configuration;
 import freemarker.template.Template;

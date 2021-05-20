@@ -3,7 +3,7 @@ package com.kakadurf.cv4.framework.controller.servlet;
 import com.kakadurf.cv4.domain.entities.UserData;
 import com.kakadurf.cv4.domain.service.interfaces.MailService;
 import com.kakadurf.cv4.domain.service.interfaces.UserManagingService;
-import com.kakadurf.cv4.framework.data.transport.UserMapper;
+import com.kakadurf.cv4.domain.transport.UserMapper;
 import com.kakadurf.cv4.framework.security.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

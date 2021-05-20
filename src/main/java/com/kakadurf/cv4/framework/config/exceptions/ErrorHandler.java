@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
-public class NotFoundHandler {
+public class ErrorHandler {
     @ExceptionHandler(Exception.class)
     public String handle(Exception e) throws Exception {
         if (AnnotationUtils.findAnnotation

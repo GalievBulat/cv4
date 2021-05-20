@@ -1,4 +1,4 @@
-package com.kakadurf.cv4.framework.data.transport;
+package com.kakadurf.cv4.domain.transport;
 
 import org.mapstruct.Qualifier;
 
@@ -10,6 +10,6 @@ import java.lang.annotation.Target;
 @Qualifier
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.CLASS)
-public @interface FileLinkProvider {
+public @interface ListSizeProvider {
     
 }
