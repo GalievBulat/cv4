@@ -14,7 +14,11 @@ public class RestLiking {
     @PostMapping("/api/like/{post_id}")
     public ResponseEntity<?> likePost(@PathVariable("post_id") long postId,
                                       @AuthenticationPrincipal UserDetailsImpl security){
-        postService.likePost(security.user, postId);
-        return ResponseEntity.ok().build();
+        try {
+            postService.likePost(security.user, postId);
+            return ResponseEntity.ok().build();
+        } catch (IllegalArgumentException e){
+            return ResponseEntity.badRequest().build();
+        }
     }
 }

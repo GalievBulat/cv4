@@ -22,13 +22,13 @@ public class PostEntity {
     @OneToOne
     @JoinColumn(name = "parent_id", referencedColumnName = "id")
     private PostEntity parent;
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
     private Set<UserEntity> liked;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private UserEntity owner;
     private String text;
-    @OneToOne()
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "music_id", referencedColumnName = "id")
     private MusicEntity music;
 

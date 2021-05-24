@@ -19,10 +19,10 @@ public class PostDto {
         return "{" +
                 "\"id\":" + id +
                 ", \"parentId\":\"" + parentId + '\"' +
-                ", \"liked\":\"" + liked + '\"' +
-                ", \"owner\":\"" + owner + '\"' +
+                ", \"liked\":" + liked  +
+                ", \"owner\":" + owner.toJSON()  +
                 ", \"text\":\"" + text + '\"' +
-                ", \"music\":\"" + music + '\"' +
+                ", \"music\":" + (music!=null ? music.toJSON() : "{}") +
                 '}';
     }
 }

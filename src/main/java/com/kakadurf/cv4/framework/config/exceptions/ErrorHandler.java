@@ -1,3 +1,4 @@
+/*
 package com.kakadurf.cv4.framework.config.exceptions;
 
 import org.springframework.core.annotation.AnnotationUtils;
@@ -15,3 +16,4 @@ public class ErrorHandler {
         return "error";
     }
 }
+*/

@@ -13,12 +13,12 @@
 <#include "resources/starter.ftl">
 <@starter/>
 
-<div style="
+<div id= "posts" style="
  position: absolute; left: 163px;
     top: 231px;  overflow: auto;
     width: 954px; height: 390px" >
     <#list posts as item>
-        <div style="margin: 15px; color: #eaeaea" class="card text-white bg-dark mb-3" >
+        <div id = "${item.id}" style="margin: 15px; color: #eaeaea" class="card text-white bg-dark mb-3" >
             <div class="card-header">
                 ${item.owner.name}
             </div>
@@ -37,7 +37,7 @@
                     </svg>
                 ${item.liked}
 
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+                <svg onclick="expand(${item.id},'${token}')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
                     <path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
                 </svg>
                 Comments
@@ -49,17 +49,22 @@
 <header class="Text">Posts</header>
 
 <div class="Text2">
-    <button style="width: 250px; background-color: #001A29;border-color: #001A29;" class="btn btn-primary" data-bs-toggle="collapse" href="#form" role="button" aria-expanded="false" aria-controls="collapseExample">
+    <button style="width: 250px; background-color: #001A29;border-color: #001A29;" class="btn btn-primary" data-bs-toggle="collapse" href="#add" role="button" aria-expanded="false" aria-controls="collapseExample">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-dots" viewBox="0 0 16 16">
             <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
             <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
         </svg>
     </button>
-    <form action="http://localhost/music" method="get" class="collapse" id="form" style="margin-top: 20px;">
+    <div <#--action="http://localhost/api/add_post"-->  class="collapse" id="add" style="margin-top: 20px;">
         <input class="form-control" id = "query" name="text" type="text" placeholder="текст">
-        <input class="form-control" id = "query2" name="songId" type="number" placeholder="песня">
-        <input type="submit"  style="font-size: 150%" value="Оставить запись" class="btn btn-dark" />
-    </form>
+        <input class="form-control" id = "query2" name="parentId" type="number" placeholder="теща">
+        <input class="form-control" id = "query2" name="musicId" type="number" placeholder="музыка">
+        <#--<meta http-equiv="Authorization" content="${token}"/>-->
+
+        <button onclick="addPost('${token}')"  style="font-size: 150%" value="Оставить запись" class="btn btn-dark" />
+        <#--Text
+        </button>-->
+    </div>
    <#-- <input class="form-control" type="text" placeholder="Default input" aria-label="default input example">-->
 </div>
 

@@ -7,10 +7,7 @@ import com.kakadurf.cv4.framework.security.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.stream.Collectors;
 
@@ -21,7 +18,7 @@ public class RestComments {
     @PostMapping("/api/comments/{post_id}")
     public ResponseEntity<String> getComments(@PathVariable("post_id") long postId){
         return ResponseEntity.ok(postService.getComments(postId).stream()
-                .map(PostDto::toJSON).collect(Collectors.joining(", ")));
+                .map(PostDto::toJSON).collect(Collectors.toList()).toString());
     }
     @PostMapping("/api/add_post")
     public ResponseEntity<?> addPost(@RequestBody PostInfo postInfo,

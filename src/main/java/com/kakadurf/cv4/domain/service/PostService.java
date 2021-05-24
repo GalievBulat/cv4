@@ -7,6 +7,7 @@ import com.kakadurf.cv4.domain.entities.UserEntity;
 import com.kakadurf.cv4.domain.transport.PostMapper;
 import com.kakadurf.cv4.domain.transport.dto.PostDto;
 import com.kakadurf.cv4.domain.transport.dto.PostInfo;
+import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -32,7 +33,11 @@ public class PostService {
                 .map(PostMapper.INSTANCE::postToDto).toList();
     }
     @Transactional
-    public void likePost(UserEntity user, long postId){
+    public void likePost(UserEntity user, long postId) throws IllegalArgumentException{
+        int cnt = postSource.countFirstByIdAndLiked_Id(postId, user.getId());
+        if (cnt>0){
+            throw new IllegalArgumentException("already liked");
+        }
         PostEntity post = postSource.findAllById(postId);
         Set<UserEntity> set = post.getLiked();
         set.add(user);

@@ -12,6 +12,8 @@ import java.util.List;
 public interface PostSource {
     Page<PostEntity> findAllByParentIsNull(Pageable pageable);
     PostEntity findAllById(long id);
+    //PostEntity findFirstByLiked_Id(long id);
+    int countFirstByIdAndLiked_Id(long postEntity,long id);
     PostEntity save(PostEntity postEntity);
     Page<PostEntity> findByParent(PostEntity postEntity, Pageable pageable);
 }
