@@ -1,15 +1,11 @@
 
 <#include  "resources/config.ftl">
 <@config name="auth"/>
-<#include "resources/background.ftl">
-<#include "resources/nav.ftl">
 <#import "spring.ftl" as spring />
-<div  style="margin-top: 56px;">
-
-    <#include  "resources/header.ftl">
-    <@header text = "auth"/>
-    <div class="figure2" style="width: 80%;">
-        <#include "resources/errors.ftl">
+<#include "resources/starter.ftl">
+<@starter/>
+<div id= "posts" class="must-paste" >
+    <div class="figure2">
         <form method="post"  class="form" action="/auth">
             <label class="highlight"><@spring.message 'auth.highlight'/></label>
             <input class="form_element" type="email" name="tc" placeholder="email"/>
@@ -27,8 +23,18 @@
     <a href="?lang=en">EN</a>
     <a href="?lang=ru">RU</a>
 </div>
-<#include "resources/footer.ftl">
-<@footer margin=30/>
+
+<header class="Text">Auth</header>
+
+<div class="Text2">Auth</div>
+
+<hr class="Line4" style="margin: 0;">
+
+<#include  "resources/footer_dark.ftl">
+<footer class="Rectangle8" >
+    <@footerDark/>
+</footer>
+
 
 <@bootstrapjs></@bootstrapjs>
 </body>
