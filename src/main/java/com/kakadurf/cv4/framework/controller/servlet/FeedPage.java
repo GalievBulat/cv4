@@ -20,13 +20,13 @@ import java.util.stream.Collectors;
 
 @Controller
 @PreAuthorize("isAuthenticated()")
-public class Feed {
+public class FeedPage {
     @Autowired
     MusicService musicService;
     @Autowired
     UserManagingService userManagingService;
     @GetMapping("/feed")
-    public String getFeed(
+    public String getFeedPage(
             @RequestParam(required = false, defaultValue = "1") int page,
             @RequestParam(required = false, defaultValue = "10" ) int size,
             @AuthenticationPrincipal UserDetailsImpl security,

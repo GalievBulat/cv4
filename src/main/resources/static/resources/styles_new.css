@@ -1,3 +1,12 @@
+
+@font-face {
+    font-family: Roboto; /* Гарнитура шрифта */
+    src: url(fonts/Roboto-Regular.ttf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+    font-family: Georgia; /* Гарнитура шрифта */
+    src: url(fonts/Georgia.ttf); /* Путь к файлу со шрифтом */
+}
     /* back_final 1 */
 
 .back_final1 {
@@ -193,7 +202,7 @@
     width: 1281px;
     height: 175px;
     left: -1px;
-    top: 605px;
+    top: 620px;
 
     background: #001A29;
     border-radius: 12px;
@@ -239,4 +248,10 @@
     text-align: center;
 
     color: #000000;
+}
+.must-paste{
+
+    position: absolute; left: 163px;
+    top: 231px;  overflow: auto;
+    width: 954px; height: 390px
 }

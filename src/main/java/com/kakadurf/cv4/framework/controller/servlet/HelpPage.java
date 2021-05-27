@@ -8,7 +8,7 @@ import javax.annotation.security.PermitAll;
 @Controller
 public class HelpPage{
     @GetMapping("/help")
-    public String getMainPage(){
+    public String getHelpPage(){
         return "help";
     }
 }

@@ -14,9 +14,8 @@ public class SubscribeController {
     UserManagingService userManagingService;
 
     @GetMapping("/subscribe/{id}")
-    public String subscribe(@AuthenticationPrincipal UserDetailsImpl security,
-                            @PathVariable("id") long id){
-
+    public String subscribeToUser(@AuthenticationPrincipal UserDetailsImpl security,
+                                  @PathVariable("id") long id){
         userManagingService.subscribeToUser(security.user.getId(), id);
         return "redirect:/feed";
     }

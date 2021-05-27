@@ -13,10 +13,7 @@
 <#include "resources/starter.ftl">
 <@starter/>
 
-<div id= "posts" style="
- position: absolute; left: 163px;
-    top: 231px;  overflow: auto;
-    width: 954px; height: 390px" >
+<div id= "posts" class="must-paste" >
     <#list posts as item>
         <div id = "${item.id}" style="margin: 15px; color: #eaeaea" class="card text-white bg-dark mb-3" >
             <div class="card-header">
@@ -75,10 +72,6 @@
 
 
 <hr class="Line4" style="margin: 0;">
-<div class="image1"></div>
-
-<div class="image2"></div>
-
 </body>
 
 <script src="/resources/posts.js" charset="UTF-8"></script>

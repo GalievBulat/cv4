@@ -24,6 +24,7 @@ public class FileManagingController {
         fileHandlingService.saveFile(new MultipartFileFacade(file));
         return "redirect:/profile";
     }*/
+    //TODO(rest)
     @GetMapping("/file/{fileName}")
     @ResponseBody
     public void getFile(@PathVariable("fileName") String fileName, HttpServletResponse response){

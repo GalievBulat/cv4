@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @PreAuthorize("isAuthenticated()")
 @Controller
-public class Profile {
+public class ProfilePage {
     @Autowired
     UserManagingService editorService;
     @Autowired
@@ -25,9 +25,9 @@ public class Profile {
     MailService mailService;
 
     @GetMapping("/profile")
-    public String getProfile(Model model, @AuthenticationPrincipal UserDetailsImpl security){
+    public String getProfilePage(Model model, @AuthenticationPrincipal UserDetailsImpl security){
         model.addAttribute("user", UserMapper.INSTANCE.userToDto(security.user));
-        return "profile";
+        return "profile2";
     }
     @PostMapping("/profile")
     public String editPageProfile(UserData data, @AuthenticationPrincipal UserDetailsImpl security){

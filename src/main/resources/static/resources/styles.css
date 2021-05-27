@@ -1,4 +1,8 @@
 
+@font-face {
+    font-family: Georgia; /* Гарнитура шрифта */
+    src: url(fonts/Georgia.ttf); /* Путь к файлу со шрифтом */
+}
 .backgr{
     width:100%; height:max-content;
     min-height: 100%;

@@ -13,12 +13,19 @@
                 <div class="card-body">
                     <h5 class="card-title" id="name">${user.name}</h5>
                     <p class="card-text" id="surname">${user.surname}</p>
+                    <#--<p class="card-text"><small class="text-muted">${user.tc}</small></p>-->
                 </div>
             </div>
         </div>
     </div>
-    <a href="http://localhost/subscribe/${user.id}" class="btn btn-dark main_button top_margin d-flex justify-content-center" style="margin: auto; margin-bottom: 3%; margin-top: 3%; font-size: 200%;">
-        Подписаться
+    <button id ="change" type="button" class="btn btn-dark main_button top_margin d-flex justify-content-center"
+            onclick="changeProfile('${_csrf.parameterName}','${_csrf.token}')" style="
+    margin: 3% auto;font-size: 200%;">
+        <@spring.message 'profile.change_password'/>
+    </button>
+    <a href="/logout" class="btn btn-dark main_button top_margin d-flex justify-content-center"
+       style="margin: 3% auto;font-size: 200%;">
+        Выход
     </a>
 </div>
 

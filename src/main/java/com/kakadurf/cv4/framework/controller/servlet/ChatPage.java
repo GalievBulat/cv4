@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 @PreAuthorize("isAuthenticated()")
-public class Chat {
+public class ChatPage {
     @Autowired
     MessageService messageService;
 
     @Autowired
     JwtTokenizer jwtTokenizer;
     @GetMapping("/chat")
-    public String getPage(Model model, @AuthenticationPrincipal UserDetailsImpl security){
+    public String getChatPage(Model model, @AuthenticationPrincipal UserDetailsImpl security){
         model.addAttribute("token", jwtTokenizer.getToken(security.user.getId(), security.user.getName()));
         model.addAttribute("username", security.user.getName());
         model.addAttribute("messages",messageService.getOnesMessages(security.user));

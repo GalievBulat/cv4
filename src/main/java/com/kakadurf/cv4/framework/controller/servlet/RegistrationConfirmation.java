@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.annotation.security.PermitAll;
 import java.util.UUID;
 
-import static com.kakadurf.cv4.framework.controller.servlet.Registration.user;
+import static com.kakadurf.cv4.framework.controller.servlet.RegistrationPage.user;
 
 @PermitAll
 @Controller
@@ -23,13 +23,13 @@ public class RegistrationConfirmation {
     private MailService emailSender;
 
     @GetMapping("/registration_confirmation")
-    public String getPage() {
+    public String getRegConfirmationPage() {
         return "registration_confirmation";
     }
     @PostMapping("/registration_confirmation")
-    public String getUser(@RequestParam int code){
+    public String confirmUser(@RequestParam int code){
         if (user != null && user.getEmail() != null){
-            if (code == Registration.code) {
+            if (code == RegistrationPage.code) {
                 String emailCode = UUID.randomUUID().toString();
                 regHandler.signUp(user, emailCode);
                 emailSender.sendMail(user.getEmail(), "confirmation",

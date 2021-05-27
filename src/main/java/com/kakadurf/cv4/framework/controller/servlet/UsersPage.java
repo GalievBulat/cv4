@@ -17,8 +17,8 @@ public class UsersPage {
     @Autowired
     UserManagingService managingService;
     @GetMapping("/user/{id}")
-    public String getSearchPage(@PathVariable("id") long id,
-                                Model model){
+    public String getUsersPage(@PathVariable("id") long id,
+                               Model model){
         UserDto user = managingService.findUser(id).orElseThrow(()->
                 new ResponseStatusException(HttpStatus.BAD_REQUEST,""));
         model.addAttribute("user",user);

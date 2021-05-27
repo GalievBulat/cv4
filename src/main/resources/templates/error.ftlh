@@ -1,16 +1,29 @@
+
 <#include  "resources/config.ftl">
-<@config name="success"/>
-<#include "resources/background.ftl">
-<#include "resources/nav.ftl">
-<div style="margin-top: 56px;height: 100%;">
-    <#include  "resources/header.ftl">
-    <@header text ="Все плохо"/>
+<@config name="auth"/>
+<#import "spring.ftl" as spring />
+<#include "resources/starter.ftl">
+<@starter/>
+<div id= "posts" class="must-paste" >
     <div class="figure2 top_margin d-flex justify-content-end">
         <p id = "help" class="text">Потрачено</p>
     </div>
 </div>
-<#include "resources/footer.ftl">
-<@footer margin=30/>
+
+<header class="Text">Все плохо</header>
+
+<div class="Text2">Потрачено</div>
+
+<hr class="Line4" style="margin: 0;">
+
+<#include  "resources/footer_dark.ftl">
+<footer class="Rectangle8" >
+    <@footerDark/>
+</footer>
+
+
+<script src="/resources/profile.js" charset="UTF-8"></script>
+
 <@bootstrapjs></@bootstrapjs>
 </body>
 </html>

@@ -17,8 +17,8 @@ public class EmailConfirmation {
     private UserSource userSource;
 
     @GetMapping("/email_confirm/{code}")
-    public String getPage(@PathVariable("code") String code,
-                          @AuthenticationPrincipal UserDetailsImpl userDetails) {
+    public String getConfirmationPage(@PathVariable("code") String code,
+                                      @AuthenticationPrincipal UserDetailsImpl userDetails) {
         UserEntity user = userDetails.user;
         if (user == null){
             return "redirect:/auth";

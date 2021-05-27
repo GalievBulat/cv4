@@ -56,7 +56,7 @@ public class MusicSavingPage {
     }
 
     @GetMapping("/save_music")
-    public String getPage(){
+    public String getSavingPage(){
         return "music_saving";
     }
 }

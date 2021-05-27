@@ -20,7 +20,7 @@ public class MusicListing {
     @Autowired
     MusicService musicService;
 
-    @GetMapping("/music")
+    @GetMapping("/music_search" )
     public String getSearchPage(Model model,
                                 MusicInfo musicInfo,
                                 @RequestParam(required = false, defaultValue = "1") int page,

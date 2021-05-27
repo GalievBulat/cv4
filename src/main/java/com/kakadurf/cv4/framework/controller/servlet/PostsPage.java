@@ -20,15 +20,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 @PreAuthorize("isAuthenticated()")
-public class Posts {
+public class PostsPage {
     @Autowired
     PostService postService;
     @Autowired
     JwtTokenizer jwtTokenizer;
     @GetMapping("/posts")
-    public String getPosts(Model model,
-                           @AuthenticationPrincipal UserDetailsImpl security,
-                           @PageableDefault Pageable pageable){
+    public String getPostsPage(Model model,
+                               @AuthenticationPrincipal UserDetailsImpl security,
+                               @PageableDefault Pageable pageable){
         model.addAttribute("posts",postService.getAllPosts(pageable));
         model.addAttribute("token", jwtTokenizer.getToken(security.user.getId(),security.user.getName()));
         return "posts";

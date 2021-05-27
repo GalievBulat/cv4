@@ -1,0 +1,250 @@
+
+
+@font-face {
+    font-family: Roboto; /* Гарнитура шрифта */
+    src: url(fonts/Roboto-Thin.ttf); /* Путь к файлу со шрифтом */
+}
+.pct  {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    left: 0px;
+    top: 0px;
+    background: url(pct.jpg);
+    background-size: cover;
+}
+
+
+
+
+/* Rectangle 1 */
+
+.Rectangle1 {
+    position: absolute;
+    width: 580px;
+    height: 150px;
+    left: 273px;
+    top: 491px;
+
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/* Music loft */
+
+.loft {
+    position: absolute;
+    width: 580px;
+    height: 132.86px;
+    left: 273px;
+    top: 505px;
+
+    font-family: Roboto,sans-serif;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 105px;
+    line-height: 123px;
+    text-align: center;
+
+    color: #EAEAEA;
+}
+
+
+
+/* Explore */
+
+.Explore {
+    position: absolute;
+    width: 439.54px;
+    height: 115px;
+    left: 411px;
+    top: 687.6px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 96px;
+    line-height: 112px;
+    text-align: center;
+
+    color: #F7DEBC;
+}
+
+
+/* Rectangle 2 */
+
+.Rectangle2 {
+    position: absolute;
+    width: 439.54px;
+    height: 125px;
+    left: 411.46px;
+    top: 683px;
+
+    border: 2px solid #F7DEBC;
+    box-sizing: border-box;
+}
+
+/* Line 1 */
+
+.Line1 {
+    position: absolute;
+    visibility: hidden;
+    width: 2157.01px;
+    height: 0px;
+    left: 1920px;
+    top: 0px;
+
+    border: 1px solid #FFFFFF;
+    transform: rotate(152.89deg);
+}
+
+/* Line 2 */
+
+.Line2 {
+    position: absolute;
+    visibility: hidden;
+    width: 2157.01px;
+    height: 0px;
+    left: 0px;
+    top: 0px;
+
+    border: 1px solid #FFFFFF;
+    transform: rotate(27.11deg);
+}
+
+/* Text text text */
+
+.TextText {
+    position: absolute;
+    visibility: hidden;
+    width: 1077px;
+    height: 133.82px;
+    left: 843px;
+    top: 946.18px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 72px;
+    line-height: 84px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+
+
+/* Vector 1 */
+
+.Vector1 {
+    position: absolute;
+    width: 2117px;
+    /*height: 126.35px;*/
+    left: -178px;
+    top: 965px;
+
+    filter: blur(0.3px);
+}
+
+/* Vector 5 */
+
+.Vector5 {
+    position: absolute;
+    width: 2085px;
+    /*    height: 129.29px;*/
+    left: -76px;
+    top: 1010px;
+
+    filter: blur(0.3px);
+}
+
+/**/
+/* carousel-lighting-vintage-attraction-1184897-wallhere 1 */
+
+.carousel {
+
+    position: absolute;
+    width: 1920px;
+    height: 1220px;
+    left: 0px;
+    top: 1040px;
+
+    background: url(crsl.jpg);
+
+    background-size: cover;
+}
+
+/* Line 4 */
+
+.Line4 {
+    position: absolute;
+    visibility: hidden;
+    width: 2174.69px;
+    height: 0px;
+    left: 1900.9px;
+    top: 1140px;
+
+    border: 1px solid #FFFFFF;
+    transform: matrix(-0.82, 0.48, -0.64, -0.85, 0, 0);
+}
+
+/* Rectangle 1 */
+
+.Rectangle5 {
+    position: absolute;
+    width: 456.68px;
+    height: 220px;
+    left: 1310.12px;
+    top: 1556.25px;
+
+    background: rgba(0, 0, 0, 0.45);
+}
+
+/* text */
+
+.textt {
+    position: absolute;
+    width: 456.68px;
+    height: 197.46px;
+    left: 1310.12px;
+    top: 1578.78px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 72px;
+    line-height: 84px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+/* Rectangle 4 */
+
+.Rectangle4 {
+    position: absolute;
+    width: 1920px;
+    height: 164px;
+    left: 0px;
+    top: 2259px;
+
+    background: #280429;
+}
+
+/* Disclamer Disclamer Disclamer Disclamer Disclamer Disclamer */
+
+.Disclamer {
+    position: absolute;
+    width: 1920px;
+    height: 72.21px;
+    left: 0px;
+    top: 2290px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 64px;
+    line-height: 75px;
+    text-align: center;
+
+    color: #FFFFFF;
+}

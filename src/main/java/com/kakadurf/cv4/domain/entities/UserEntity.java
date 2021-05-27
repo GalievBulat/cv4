@@ -28,7 +28,7 @@ public class UserEntity  {
     private String emailCode;
 
     public enum State{
-        ACTIVE, NON_CONFIRMED,
+        ACTIVE, NON_CONFIRMED, SUPPORT
     }
 
     public String toJSON(){

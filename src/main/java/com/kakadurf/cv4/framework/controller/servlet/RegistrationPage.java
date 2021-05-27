@@ -16,7 +16,7 @@ import java.util.Random;
 
 @PermitAll
 @Controller
-public class Registration{
+public class RegistrationPage {
     static UserData user;
     static int code;
 
@@ -26,17 +26,17 @@ public class Registration{
     @Autowired
     private UserSource userSource;
     @GetMapping("/reg")
-    public String getPage(Model model) {
+    public String getRegistrationPage(Model model) {
         model.addAttribute("userData",new UserData());
         return "registration";
     }
     @PostMapping("/reg")
-    public String getUser(@Valid UserData user,
-                          BindingResult bindingResult){
+    public String registerUser(@Valid UserData user,
+                               BindingResult bindingResult){
         if (!bindingResult.hasErrors()) {
             if (!userSource.findByEmail(user.getEmail()).isPresent()) {
-                Registration.code = new Random().nextInt(9999);
-                Registration.user = user;
+                RegistrationPage.code = new Random().nextInt(9999);
+                RegistrationPage.user = user;
                 smsSender.sendSms(user.getPhone_num(), code + "");
                 return "redirect:/registration_confirmation";
             }
